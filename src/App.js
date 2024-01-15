@@ -1,6 +1,6 @@
 // src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RegisterForm from './components/RegisterForm';
 import Dashboard from './components/Dashboard';
 import BillingOperations from './components/BillingOperations';
@@ -21,12 +21,12 @@ const App = () => {
           <a href="/billing">Billing</a>
           <a href="/receipt">Receipt</a>
         </nav>
-        <Switch>
-          <Route path="/register" component={RegisterForm} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/billing" component={BillingOperations} />
-          <Route path="/receipt" component={Receipt} />
-        </Switch>
+        <Routes>
+          <Route path="/register" element={<RegisterForm />} /> 
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/billing"  element={<BillingOperations />} />
+          <Route path="/receipt" element={<Receipt />} />
+        </Routes>
       </div>
     </Router>
   );
