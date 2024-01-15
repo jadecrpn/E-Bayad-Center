@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import RegisterForm from './components/RegisterForm';
+import Dashboard from './components/Dashboard';
+import BillingOperations from './components/BillingOperations';
+import Receipt from './components/Receipt';
+
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        <header>
+          <h1>E-Wallet App</h1>
+        </header>
+        <nav>
+          <a href="/register">Register</a>
+          <a href="/dashboard">Dashboard</a>
+          <a href="/billing">Billing</a>
+          <a href="/receipt">Receipt</a>
+        </nav>
+        <Switch>
+          <Route path="/register" component={RegisterForm} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/billing" component={BillingOperations} />
+          <Route path="/receipt" component={Receipt} />
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
