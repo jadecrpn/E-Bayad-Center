@@ -2,13 +2,16 @@ import React from 'react';
 
 const Dashboard = () => {
   const buttonStyle = {
-    backgroundColor: '#007bff', // Change to your desired color
-    color: '#fff',
+    backgroundColor: 'transparent', // Change to your desired color
+    color: '#000000',
+    border:  '1px solid rgb(0, 0, 0)',
     padding: '10px 20px',
     textDecoration: 'none',
-    borderRadius: '5px',
+    borderRadius: '50px',
     cursor: 'pointer',
   };
+
+  
 
   return (
     <div className="container">
