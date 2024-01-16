@@ -3,9 +3,18 @@ import React from 'react';
 
 const Dashboard = () => {
   return (
-      <div className="dashboard-title"> 
-          <h2>Dashboard</h2>
-      </div>        
+    <div className="container">
+      <nav>
+          <div class = "title"> E-BILLING APP </div>
+          <div class ="nav-buttons ">  
+            <button><a href="/register" > LOG OUT </a></button>  
+          </div>
+      </nav> 
+
+      <button><a href="/billing" > PAY BILLS HERE! </a></button>  
+    </div>  
+    
+    
     );
   };
 

@@ -15,16 +15,25 @@ const App = () => {
         <nav>
             <div class = "title"> E-BILLING APP </div>
             <div class ="nav-buttons ">  
-              <button><a href="/register" > LOG OUT </a></button>  
+    
+              <a href="/register">Register</a>
+              <a href="/dashboard">Dashboard</a>
+              <a href="/billing">Billing</a>
+              <a href="/receipt">Receipt</a>
+        
+              <button className = "nav-buttons"> <a href="/register" > LOG IN </a></button>  
             </div>
         </nav>   
-        
+
+        <button><a href="/register" > REGISTER HERE </a></button>  
+         
         <Routes>
           <Route path="/register" element={<RegisterForm />} /> 
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/billing"  element={<BillingOperations />} />
           <Route path="/receipt" element={<Receipt />} />
         </Routes>
+
       </div>
     </Router>
   );

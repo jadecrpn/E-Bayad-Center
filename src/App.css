@@ -42,7 +42,7 @@ nav a {
   color: #0e0e0e;
   text-decoration: none;
   margin: 0 15px;
-  gap: 1rem;
+  gap: 2rem;
   font-size: 1rem;
   background-color: transparent;
 }
@@ -50,6 +50,8 @@ nav a {
 nav a:hover {
   color: #faf7f7;
 }
+
+
 
 
 
