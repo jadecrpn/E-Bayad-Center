@@ -33,8 +33,7 @@ const App = () => {
               <button className = "nav-buttons"> <a href="/register" > LOG IN </a></button>  
         </nav>   
 
-        <div className="About-main">       
-          <p>REDUCE COST, SAVE TIME, AND IMPROVE CASH FLOW WITH E-BILLING APP</p>
+        <div className="About-main">
           <button><a href="/register" style={buttonStyle}> REGISTER HERE </a></button>   
         </div>
 
