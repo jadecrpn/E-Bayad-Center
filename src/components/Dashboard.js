@@ -1,21 +1,44 @@
 import React from 'react';
-//import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Dashboard = () => {
+  const buttonStyle = {
+    backgroundColor: '#007bff', // Change to your desired color
+    color: '#fff',
+    padding: '10px 20px',
+    textDecoration: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+  };
+
   return (
     <div className="container">
       <nav>
-          <div class = "title"> E-BILLING APP </div>
-          <div class ="nav-buttons ">  
-            <button><a href="/register" > LOG OUT </a></button>  
+        <div className="title">E-BILLING APP</div>
+        <div className="nav-buttons">
+          <button>
+            <a href="/register">LOG OUT</a>
+          </button>
+        </div>
+      </nav>
+      <section className="Dashboard">
+        <div className="About-main">
+          <h1>WELCOME, </h1>
+          <p>REDUCE COST, SAVE TIME, AND IMPROVE CASH FLOW WITH E-BILLING APP</p>
+          <div className="main_button">
+            <a href="/billing" style={buttonStyle}>
+              PAY BILLS HERE!
+            </a>
           </div>
-      </nav> 
-
-      <button><a href="/billing" > PAY BILLS HERE! </a></button>  
-    </div>  
-    
-    
-    );
-  };
+        </div>
+        <div>
+          <p>Lorem Ipsum</p>
+        </div>
+      </section>
+      <footer>
+        <p>Copyright &#169; 2024 E-BILLING APP. All Rights Reserved.</p>
+      </footer>
+    </div>
+  );
+};
 
 export default Dashboard;
