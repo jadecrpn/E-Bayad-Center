@@ -1,5 +1,4 @@
 
-
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -71,7 +70,31 @@ button:disabled {
 .dashboard {
   margin-top: 40px;
 }
+.dashboard-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: right;
+  flex-wrap: wrap;
+}
 
+.dashboard-card {
+  background-color: #ffcc80; /* Light orange background for cards */
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  text-align: center;
+}
+
+.dashboard-card h2 {
+  margin: 0;
+  color: #4caf50; /* Green color for card heading */
+}
+
+.dashboard-card p {
+  color: #333; /* Dark text color for card content */
+}
 .transaction-history {
   background-color: #fff;
   padding: 20px;
@@ -103,10 +126,6 @@ button:disabled {
   }
 }
 
-/* src/App.css */
-
-/* ... (Previous styles) */
-
 nav {
   background-color: #333;
   padding: 10px;
@@ -118,10 +137,14 @@ nav a {
   text-decoration: none;
   margin: 0 15px;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
   text-decoration: underline;
+  color: #4caf50;
+  
+
 }
 
 .receipt {
@@ -143,4 +166,121 @@ nav a:hover {
   nav a {
     margin: 10px 0;
   }
+}
+
+@media (max-width: 600px) {
+  .dashboard,
+  .register-form,
+  .transaction-history,
+  .receipt {
+    padding: 15px;
+  }
+
+  .transaction-history-heading,
+  .receipt-heading {
+    font-size: 16px;
+  }
+  .dashboard-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .dashboard,
+  .register-form,
+  .transaction-history,
+  .receipt,
+  .dashboard button {
+    font-size: 14px;
+  }
+
+  .transaction-history-heading,
+  .receipt-heading {
+    font-size: 14px;
+  }
+}
+
+/*Registration Form*/
+
+.register-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.register-form button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.register-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.register-form .error-message {
+  color: red;
+  margin-bottom: 16px;
+}
+
+.register-form .success-message {
+  color: green;
+  margin-bottom: 16px;
+}
+
+/*Dashboard Form*/
+
+.dashboard {
+  margin-top: 40px;
+  background-color: #f8f4e4; /* Light orange background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-history {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.transaction {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.transaction:last-child {
+  border-bottom: none;
+}
+
+.transaction-history-heading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.receipt-heading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
