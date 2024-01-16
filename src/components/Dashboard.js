@@ -1,5 +1,5 @@
 import React from 'react';
-import image1 from './Assets/image1.png';
+
 
 
 const Dashboard = () => {
@@ -36,7 +36,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div>
-          <img src={image1} alt="Face" />
+          <img className="face" src={require("C:/Users/User/Documents/GitHub/e-billing/src/Assets/face.png")} alt={"face"}/>
         </div>
       </section>
       <footer>

@@ -5,7 +5,8 @@ import RegisterForm from './components/RegisterForm';
 import Dashboard from './components/Dashboard';
 import BillingOperations from './components/BillingOperations';
 import Receipt from './components/Receipt';
-//import './Assets/image1.png';
+
+
 
 import './App.css';
 
