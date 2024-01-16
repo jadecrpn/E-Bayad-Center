@@ -1,13 +1,12 @@
-// src/components/Dashboard.js
 import React from 'react';
+//import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Dashboard = () => {
   return (
-    <div>
-      <h2>User Dashboard</h2>
-      {/* ... */}
-    </div>
-  );
-};
+      <div className="dashboard-title"> 
+          <h2>Dashboard</h2>
+      </div>        
+    );
+  };
 
 export default Dashboard;
