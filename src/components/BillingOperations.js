@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Main = styled.div`
@@ -68,7 +68,7 @@ const BillingOperations = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const history = useHistory();
+  const history = useNavigate();
 
   const toggling = () => setIsOpen(!isOpen);
 
