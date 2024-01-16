@@ -1,4 +1,6 @@
 import React from 'react';
+import image1 from './Assets/image1.png';
+
 
 const Dashboard = () => {
   const buttonStyle = {
@@ -34,7 +36,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div>
-          <p>Lorem Ipsum</p>
+          <img src={image1} alt="Face" />
         </div>
       </section>
       <footer>

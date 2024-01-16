@@ -5,6 +5,7 @@ import RegisterForm from './components/RegisterForm';
 import Dashboard from './components/Dashboard';
 import BillingOperations from './components/BillingOperations';
 import Receipt from './components/Receipt';
+//import './Assets/image1.png';
 
 import './App.css';
 
@@ -31,11 +32,10 @@ const App = () => {
               <button className = "nav-buttons"> <a href="/register" > LOG IN </a></button>  
         </nav>   
 
-        <div className="About-main">
-                
-                <p>REDUCE COST, SAVE TIME, AND IMPROVE CASH FLOW WITH E-BILLING APP</p>
-                <button><a href="/register" style={buttonStyle}> REGISTER HERE </a></button>   
-              </div>
+        <div className="About-main">       
+          <p>REDUCE COST, SAVE TIME, AND IMPROVE CASH FLOW WITH E-BILLING APP</p>
+          <button><a href="/register" style={buttonStyle}> REGISTER HERE </a></button>   
+        </div>
 
         
 
