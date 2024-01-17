@@ -1,72 +1,71 @@
-// src/components/RegisterForm.js
 import React, { useState } from 'react';
-import { useMutation } from 'react-query';
-
-const registerUser = async (userData) => {
-  const response = await fetch('/api/register', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(userData),
-  });
-
-  if (!response.ok) {
-    throw new Error('Registration failed');
-  }
-
-  return response.json();
-};
 
 const RegisterForm = () => {
+  const buttonStyle = {
+    backgroundColor: '#be800d',
+    color: '#000000',
+    border: '1px solid rgb(0, 0, 0)',
+    padding: '10px 20px',
+    textDecoration: 'none',
+    borderRadius: '50px',
+    cursor: 'pointer',
+    display: 'block',
+    margin: '0 auto', // Center the button horizontally
+  };
+
+  
+  // State variables to store form data
   const [formData, setFormData] = useState({
     username: '',
-    email: '',
     password: '',
   });
 
-  const mutation = useMutation(registerUser);
+  // Event handler to update form data on input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
+  // Event handler for form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    mutation.mutate(formData);
+    // Add your registration logic here, e.g., send data to a server
+    console.log('Form submitted:', formData);
+    // Clear form fields after submission
+    setFormData({
+      username: '',
+      password: '',
+    });
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            type="text"
-            value={formData.username}
-            onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="email"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-          />
-        </label>
-        <button type="submit" disabled={mutation.isLoading}>
-          {mutation.isLoading ? 'Registering...' : 'Register'}
-        </button>
-      </form>
-      {mutation.isError && <p>Error: {mutation.error.message}</p>}
-      {mutation.isSuccess && <p>Registration successful!</p>}
-    </div>
+    <form className = "Registerform" onSubmit={handleSubmit}>
+      <label>
+        Username:
+        <input
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleInputChange}
+        />
+      </label>
+      <br />
+      <br />
+      <label>
+        Password:
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleInputChange}
+        />
+      </label>
+      <br />
+      <button type="submit" href="/register" style={buttonStyle} >Register</button>
+    </form>
   );
 };
 
