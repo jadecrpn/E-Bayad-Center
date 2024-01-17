@@ -12,13 +12,15 @@ import './App.css';
 
 const App = () => {
   const buttonStyle = {
-    backgroundColor: 'transparent', // Change to your desired color
+    backgroundColor: '#be800d',
     color: '#000000',
-    border:  '1px solid rgb(0, 0, 0)',
+    border: '1px solid rgb(0, 0, 0)',
     padding: '10px 20px',
     textDecoration: 'none',
     borderRadius: '50px',
     cursor: 'pointer',
+    display: 'block',
+    margin: '0 auto', // Center the button horizontally
   };
 
   return (
@@ -33,15 +35,10 @@ const App = () => {
               <button className = "nav-buttons"> <a href="/register" > LOG IN </a></button>  
         </nav>   
 
-        <div className="About-main">
+        <div>
           <button><a href="/register" style={buttonStyle}> REGISTER HERE </a></button>   
         </div>
 
-        
-
-        <footer>
-          <p>Copyright &#169; 2024 E-BILLING APP. All Rights Reserved.</p>
-        </footer>
          
         <Routes>
           <Route path="/register" element={<RegisterForm />} /> 
@@ -51,6 +48,10 @@ const App = () => {
         </Routes>
 
       </div>
+
+      <footer>
+          <p>Copyright &#169; 2024 E-BILLING APP. All Rights Reserved.</p>
+      </footer>
     </Router>
   );
 };

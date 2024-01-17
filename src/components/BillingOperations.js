@@ -6,16 +6,19 @@ const Main = styled.div`
   font-family: sans-serif;
   background: #f0f0f0;
   height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px; /* Add padding for better spacing */
 `;
 
 const DropDownContainer = styled.div`
   width: 15em;
-  margin: 0 auto;
   color: #be800d;
 `;
 
 const DropDownHeader = styled.div`
-  margin-bottom: 0.8em;
+  
   padding: 0.4em 2em 0.4em 1em;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
@@ -56,14 +59,15 @@ const ListItem = styled.li`
 const Button = styled.button`
   background-color: #007bff;
   color: #fff;
-  padding: 10px 20px;
+ 
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 5px;
 `;
 
 const BillingOperations = () => {
-  const options = ['Mangoes', 'Apples', 'Oranges'];
+  const options = ['Meralco', 'Maynilad', 'PLDT'];
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -79,7 +83,6 @@ const BillingOperations = () => {
   };
 
   const navigateToCorrespondingPage = () => {
-    // Redirect to the corresponding page based on the selected option
     if (selectedOption === 'Mangoes') {
       history.push('/mango-page');
     } else if (selectedOption === 'Apples') {
@@ -106,8 +109,8 @@ const BillingOperations = () => {
             </DropDownList>
           </DropDownListContainer>
         )}
-      </DropDownContainer>
-      <Button onClick={navigateToCorrespondingPage}>Go to Corresponding Page</Button>
+      </DropDownContainer>  
+      <Button onClick={navigateToCorrespondingPage}>Go </Button>
     </Main>
   );
 };

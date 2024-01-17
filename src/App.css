@@ -109,7 +109,7 @@ form {
   justify-content: center;
   background-color: #fff;
   padding: 30px;
-  border-radius: 5px;
+  border-radius: 50px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
   width: 300px; /* Set a fixed width for the form */

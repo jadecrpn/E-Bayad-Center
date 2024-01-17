@@ -38,11 +38,10 @@ const Dashboard = () => {
         <div>
           <img className="face" src={require("C:/Users/User/Documents/GitHub/e-billing/src/Assets/face.png")} alt={"face"}/>
         </div>
-      </section>
-      <footer>
-        <p>Copyright &#169; 2024 E-BILLING APP. All Rights Reserved.</p>
-      </footer>
+      </section>  
     </div>
+
+    
   );
 };
 
