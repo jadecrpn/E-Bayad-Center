@@ -1,42 +1,51 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import RegisterForm from './components/RegisterForm';
-import Dashboard from './components/Dashboard';
-import BillingOperations from './components/BillingOperations';
-import Receipt from './components/Receipt';
+import React, { useState } from 'react';
 
-import './App.css';
+function App() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-const App = () => {
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // Add registration or login logic here
+  };
+
   return (
-    <Router> 
-      <div className="container">
-        <nav>
-            <div class = "title"> E-BILLING APP </div>
-            <div class ="nav-buttons ">  
-    
-              <a href="/register">Register</a>
-              <a href="/dashboard">Dashboard</a>
-              <a href="/billing">Billing</a>
-              <a href="/receipt">Receipt</a>
-        
-              <button className = "nav-buttons"> <a href="/register" > LOG IN </a></button>  
-            </div>
-        </nav>   
-
-        <button><a href="/register" > REGISTER HERE </a></button>  
-         
-        <Routes>
-          <Route path="/register" element={<RegisterForm />} /> 
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/billing"  element={<BillingOperations />} />
-          <Route path="/receipt" element={<Receipt />} />
-        </Routes>
-
-      </div>
-    </Router>
+    <div className="App">
+      <header className="App-header">
+        <h1>Streamline billing, simplify life</h1>
+        <form onSubmit={handleFormSubmit}>
+          <label htmlFor="username">
+            Username:
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={handleUsernameChange}
+            />
+          </label>
+          <label htmlFor="password">
+            Password:
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </label>
+          <button type="submit">REGISTER</button>
+        </form>
+        <button>LOGIN</button>
+      </header>
+    </div>
   );
-};
+}
 
 export default App;
