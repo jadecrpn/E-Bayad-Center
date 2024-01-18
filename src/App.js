@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import './App.css';
+import centeredImage from './assets/front-text.png';
 
 function App() {
   const [username, setUsername] = useState('');
@@ -24,7 +25,14 @@ function App() {
     <div>
       {/* First Page Section */}
       <header className="first-page">
-        <h1>Streamline billing, simplify life</h1>
+        {/* Image in the center */}
+        <div className="image-container">
+          <img
+            src={centeredImage}
+            alt="Centered Image"
+            className="centered-image"
+          />
+        </div>
         <div className="login-button">
           <button>LOGIN</button>
         </div>
