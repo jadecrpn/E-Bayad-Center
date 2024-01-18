@@ -1,4 +1,7 @@
+// App.js
+
 import React, { useState } from 'react';
+import './App.css';
 
 function App() {
   const [username, setUsername] = useState('');
@@ -18,10 +21,18 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      {/* First Page Section */}
+      <header className="first-page">
         <h1>Streamline billing, simplify life</h1>
-        <form onSubmit={handleFormSubmit}>
+        <div className="login-button">
+          <button>LOGIN</button>
+        </div>
+      </header>
+
+      {/* Registration Form Section */}
+      <div className="registration-page">
+        <form className="registration-form" onSubmit={handleFormSubmit}>
           <label htmlFor="username">
             Username:
             <input
@@ -42,8 +53,7 @@ function App() {
           </label>
           <button type="submit">REGISTER</button>
         </form>
-        <button>LOGIN</button>
-      </header>
+      </div>
     </div>
   );
 }
