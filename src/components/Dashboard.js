@@ -36,7 +36,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div>
-          <img className="face" src={require("C:/Users/User/Documents/GitHub/e-billing/src/Assets/face.png")} alt={"face"}/>
+          <img className="face" src={require("C:/Users/GWYNN CUJARDO/Documents/GitHub/e-billing/src/Assets/face.png")} alt={"face"}/>
         </div>
       </section>  
     </div>
