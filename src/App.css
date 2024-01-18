@@ -1,11 +1,13 @@
 /* App.css */
 
-.App {
-  background-color: white;
+.first-page {
+  background-color: #F27C22;
+  padding-top: 20px; /* Adjust the padding-top value as needed */
+  color: white; /* Adjust text color as needed */
 }
 
-.App-header {
-  background-color: #F27C22;
+.registration-page {
+  background-color: white;
   padding-top: 20px; /* Adjust the padding-top value as needed */
 }
 
