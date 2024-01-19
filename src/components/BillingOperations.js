@@ -8,14 +8,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
-import InboxIcon from '@mui/icons-material/Inbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import Stack from "@mui/material/Stack";
-import SvgIcon from "@mui/material/SvgIcon";
 import ListSubheader from '@mui/material/ListSubheader';
 
 
@@ -24,18 +18,22 @@ const BillingOperations = () => {
 
   return (
     <>
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="sticky">
+    <Box sx={{ flexGrow: 1}}>
+      <AppBar position="sticky" sx={{ bgcolor: '#F27C22', border: '2px solid #000000', }}>
         <Toolbar>
-            <Typography variant="h5" component="div" sx={{ flexGrow: 1, fontWeight: 'bold'}}>
+            <Typography variant="h5" component="div" sx={{ flexGrow: 1, fontWeight: 'bold', color:'black'}}>
               E-BILLING APP
             </Typography>
-            <Typography variant="h7" component="div" sx={{ flexGrow: -10, fontWeight: 'bold' }}>
+            <Typography variant="h7" component="div" sx={{ flexGrow: -10, fontWeight: 'bold', color:'black'}}>
               PAYBILLS SECTION
             </Typography>
         </Toolbar>
       </AppBar>
     </Box>
+
+    <Stack spacing={2} direction="row" sx={{paddingLeft: '20%', paddingTop: 10}}>
+      <Button variant="contained" sx={{bgcolor: '#F27C22', color: 'Black', border: '2px solid #000000',}}>Back</Button>
+      </Stack>
     
     <Box
       sx={{
@@ -43,15 +41,13 @@ const BillingOperations = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '90vh',
+        height: '60vh',
       }}
     >
 
     <Box
       sx={{
-        marginTop: '60px',
         border: '2px solid #000000',
-
         width: '100vh',
         maxWidth: 360,
         bgcolor: 'background.paper',
@@ -62,7 +58,7 @@ const BillingOperations = () => {
         
 
       <List subheader={
-              <ListSubheader sx={{ fontSize: '20px', bgcolor: '#1976d2', color: 'white'}}>
+              <ListSubheader sx={{ fontSize: '20px', bgcolor: '#F27C22', color: 'black', }}>
                 Choose Your Biller
               </ListSubheader>
             }
@@ -143,7 +139,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="PLDT" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Meralco.png")} 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\PLDT.png")} 
               alt={"PLDT"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -155,7 +151,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="Pru Life UK" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Meralco.png")} 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Pru-life.jpg")} 
               alt={"CPru Life UK"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -167,7 +163,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="Sky Cable" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Meralco.png")} 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Sky-Cable.png")} 
               alt={"Sky Cable"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -179,7 +175,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="Sun Life Insurance" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Meralco.png")} 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Sunlife.png")} 
               alt={"Sun Life Insurance"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
