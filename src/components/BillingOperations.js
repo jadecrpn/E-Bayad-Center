@@ -11,6 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import ListSubheader from '@mui/material/ListSubheader';
+import Divider from '@mui/material/Divider';
 
 
 const BillingOperations = () => {
@@ -74,6 +75,7 @@ const BillingOperations = () => {
               <ListItemText primary="Cignal" />
             </ListItemButton>
           </ListItem>
+          <Divider />
 
           <ListItem disablePadding>
             <ListItemButton>
@@ -86,6 +88,7 @@ const BillingOperations = () => {
               <ListItemText primary="Converge ICT Solutions" />
             </ListItemButton>
           </ListItem>
+          <Divider />
 
           <ListItem disablePadding>
             <ListItemButton>
@@ -98,6 +101,7 @@ const BillingOperations = () => {
               <ListItemText primary="Home-Credit" />
             </ListItemButton>
           </ListItem>
+          <Divider />
 
           <ListItem disablePadding>
             <ListItemButton>
@@ -110,6 +114,7 @@ const BillingOperations = () => {
               <ListItemText primary="Maynilad" />
             </ListItemButton>
           </ListItem>
+          <Divider />
 
           <ListItem disablePadding>
             <ListItemButton>
@@ -122,6 +127,7 @@ const BillingOperations = () => {
               <ListItemText primary="Meralco" />
             </ListItemButton>
           </ListItem>
+          <Divider />
 
           <ListItem disablePadding>
             <ListItemButton>
@@ -134,6 +140,7 @@ const BillingOperations = () => {
               <ListItemText primary="Pag-Ibig Loan" />
             </ListItemButton>
           </ListItem>
+          <Divider />
 
           <ListItem disablePadding>
             <ListItemButton>
@@ -146,6 +153,7 @@ const BillingOperations = () => {
               <ListItemText primary="PLDT" />
             </ListItemButton>
           </ListItem>
+          <Divider />
 
           <ListItem disablePadding>
             <ListItemButton>
@@ -158,6 +166,7 @@ const BillingOperations = () => {
               <ListItemText primary="Pru Life UK" />
             </ListItemButton>
           </ListItem>
+          <Divider />
 
           <ListItem disablePadding>
             <ListItemButton>
@@ -170,6 +179,7 @@ const BillingOperations = () => {
               <ListItemText primary="Sky Cable" />
             </ListItemButton>
           </ListItem>
+          <Divider />
 
           <ListItem disablePadding>
             <ListItemButton>
