@@ -1,118 +1,113 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import InboxIcon from '@mui/icons-material/Inbox';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Stack from "@mui/material/Stack";
+import SvgIcon from "@mui/material/SvgIcon";
 
-const Main = styled.div`
-  font-family: sans-serif;
-  background: #f0f0f0;
-  height: 100vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px; /* Add padding for better spacing */
-`;
+import MeralcoLogo from 'C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Meralco.png';
 
-const DropDownContainer = styled.div`
-  width: 15em;
-  color: #be800d;
-`;
 
-const DropDownHeader = styled.div`
-  
-  padding: 0.4em 2em 0.4em 1em;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-  font-weight: 500;
-  font-size: 1.3rem;
-  color: #3faffa;
-`;
-
-const DropDownListContainer = styled.div`
-  position: absolute;
-  z-index: 100;
-  width: 15em;
-  color: #be800d;
-`;
-
-const DropDownList = styled.ul`
-  padding: 0;
-  margin: 0;
-  padding-left: 1em;
-  background: #ffffff;
-  border: 2px solid #e5e5e5;
-  box-sizing: border-box;
-  color: #3faffa;
-  font-size: 1.3rem;
-  font-weight: 500;
-  &:first-child {
-    padding-top: 0.8em;
-  }
-`;
-
-const ListItem = styled.li`
-  list-style: none;
-  margin-bottom: 0.8em;
-  &:hover {
-    color: #fd9e46;
-  }
-`;
-
-const Button = styled.button`
-  background-color: #007bff;
-  color: #fff;
- 
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 5px;
-`;
+const billerLogos = {
+  'Electricity Company': MeralcoLogo,
+};
 
 const BillingOperations = () => {
-  const options = ['Meralco', 'Maynilad', 'PLDT'];
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const billers = [
+    'Electricity Company',
+    'Internet Service Provider',
+    'Water Utility',
+    'Credit Card Company',
+    'Mobile Phone Provider',
+    'Cable TV Company',
+    'Gas Supplier',
+    'Insurance Provider',
+    'Municipal Taxes',
+    'Property Management',
+  ];
 
-  const history = useNavigate();
-
-  const toggling = () => setIsOpen(!isOpen);
-
-  const onOptionClicked = (value) => () => {
-    setSelectedOption(value);
-    setIsOpen(false);
-    console.log(selectedOption);
-  };
-
-  const navigateToCorrespondingPage = () => {
-    if (selectedOption === 'Mangoes') {
-      history.push('/mango-page');
-    } else if (selectedOption === 'Apples') {
-      history.push('/apple-page');
-    } else if (selectedOption === 'Oranges') {
-      history.push('/orange-page');
-    }
+  const handleBillerClick = (biller) => {
+    console.log(`Clicked on: ${biller}`);
   };
 
   return (
-    <Main>
-      <DropDownContainer>
-        <DropDownHeader onClick={toggling}>
-          {selectedOption || 'Choose your Billers'}
-        </DropDownHeader>
-        {isOpen && (
-          <DropDownListContainer>
-            <DropDownList>
-              {options.map((option) => (
-                <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                  {option}
+    <>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          {/* <Stack direction="row" spacing={3}>
+            <HomeIcon fontSize="large" /> */}
+            <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+              E-BILLING APP
+            </Typography>
+            <Typography variant="h7" component="div" sx={{ flexGrow: -10 }}>
+              PAYBILLS SECTION
+            </Typography>
+          {/* </Stack> */}
+        </Toolbar>
+      </AppBar>
+    </Box>
+    
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+      }}
+    >
+
+    <Box
+      sx={{
+        border: '2px solid #ccc',
+        borderRadius: '8px',
+        padding: '16px',
+        width: '100%',
+        maxWidth: 360,
+        bgcolor: 'background.paper',
+        maxHeight: '50vh', // Set the maximum height for the list
+        overflowY: 'auto', // Enable vertical scrolling
+      }}
+    >
+      <List>
+            {billers.map((biller, index) => (
+              <React.Fragment key={biller}>
+                <ListItem>
+                  <ListItemButton
+                    component="div"
+                    onClick={() => handleBillerClick(biller)}
+                  >
+                    <ListItemIcon>
+                    <img
+                        src={billerLogos[biller] || 'path/to/default_logo.png'}
+                        alt={`${biller} Logo`}
+                        style={{ width: '24px', height: '24px' }}
+                      />
+                    </ListItemIcon>
+                    <ListItemText primary={`${index + 1}. ${biller}`} />
+                  </ListItemButton>
                 </ListItem>
-              ))}
-            </DropDownList>
-          </DropDownListContainer>
-        )}
-      </DropDownContainer>  
-      <Button onClick={navigateToCorrespondingPage}>Go </Button>
-    </Main>
+                {index !== billers.length - 1 && <Divider />}
+              </React.Fragment>
+            ))}
+          </List>
+        </Box>
+      </Box>
+    </>
   );
 };
-
 export default BillingOperations;
