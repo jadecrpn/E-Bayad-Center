@@ -97,6 +97,7 @@ nav a:hover {
   justify-content: center;
 }
 
+
 .face{
   padding: 50px;
 }
@@ -372,6 +373,7 @@ footer p {
   color: #000000;
 }
 
+
 /*mavi here di pa sor kung dito ko pa dapat isingit*/
 body {
   margin: 0;
@@ -425,3 +427,4 @@ body {
   margin: 4px 2px;
   border-radius: 10px;
 }
+

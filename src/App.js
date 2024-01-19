@@ -1,14 +1,11 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import RegisterForm from './components/RegisterForm';
-import Dashboard from './components/Dashboard';
-import BillingOperations from './components/BillingOperations';
-import Receipt from './components/Receipt';
+// // src/App.js
+// import React from 'react';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import RegisterForm from './components/RegisterForm';
+// import Dashboard from './components/Dashboard';
+// import BillingOperations from './components/BillingOperations';
+// import Receipt from './components/Receipt';
 
-
-
-import './App.css';
 
 import './App.css';
 import Sbsl from './assets/Sbsl.png';
