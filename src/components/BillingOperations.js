@@ -16,47 +16,23 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Stack from "@mui/material/Stack";
 import SvgIcon from "@mui/material/SvgIcon";
+import ListSubheader from '@mui/material/ListSubheader';
 
-import MeralcoLogo from 'C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Meralco.png';
-
-
-const billerLogos = {
-  'Electricity Company': MeralcoLogo,
-};
 
 const BillingOperations = () => {
 
-  const billers = [
-    'Electricity Company',
-    'Internet Service Provider',
-    'Water Utility',
-    'Credit Card Company',
-    'Mobile Phone Provider',
-    'Cable TV Company',
-    'Gas Supplier',
-    'Insurance Provider',
-    'Municipal Taxes',
-    'Property Management',
-  ];
-
-  const handleBillerClick = (biller) => {
-    console.log(`Clicked on: ${biller}`);
-  };
 
   return (
     <>
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
-          {/* <Stack direction="row" spacing={3}>
-            <HomeIcon fontSize="large" /> */}
-            <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+            <Typography variant="h5" component="div" sx={{ flexGrow: 1, fontWeight: 'bold'}}>
               E-BILLING APP
             </Typography>
-            <Typography variant="h7" component="div" sx={{ flexGrow: -10 }}>
+            <Typography variant="h7" component="div" sx={{ flexGrow: -10, fontWeight: 'bold' }}>
               PAYBILLS SECTION
             </Typography>
-          {/* </Stack> */}
         </Toolbar>
       </AppBar>
     </Box>
@@ -67,24 +43,153 @@ const BillingOperations = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100vh',
+        height: '90vh',
       }}
     >
 
     <Box
       sx={{
-        border: '2px solid #ccc',
-        borderRadius: '8px',
-        padding: '16px',
-        width: '100%',
+        marginTop: '60px',
+        border: '2px solid #000000',
+
+        width: '100vh',
         maxWidth: 360,
         bgcolor: 'background.paper',
-        maxHeight: '50vh', // Set the maximum height for the list
+        maxHeight: '40vh', // Set the maximum height for the list
         overflowY: 'auto', // Enable vertical scrolling
       }}
     >
-      <List>
-            {billers.map((biller, index) => (
+        
+
+      <List subheader={
+              <ListSubheader sx={{ fontSize: '20px', bgcolor: '#1976d2', color: 'white'}}>
+                Choose Your Biller
+              </ListSubheader>
+            }
+      >
+      <ListItem disablePadding>
+            <ListItemButton sx={{paddingTop: '15px'}}>
+              <ListItemIcon>
+              <img className="Cignal" 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Cignal.png")} 
+              alt={"Cignal"}
+              style={{ width: '24px', height: '24px' }}/>
+              </ListItemIcon>
+              <ListItemText primary="Cignal" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+              <img className="Converge" 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Converge_ICT_.png")} 
+              alt={"Converge"}
+              style={{ width: '24px', height: '24px' }}/>
+              </ListItemIcon>
+              <ListItemText primary="Converge ICT Solutions" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+              <img className="Home-Credit" 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Home-Credit.png")} 
+              alt={"Home-Credit"}
+              style={{ width: '24px', height: '24px' }}/>
+              </ListItemIcon>
+              <ListItemText primary="Home-Credit" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+              <img className="Maynilad" 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Maynilad.png")} 
+              alt={"Maynilad"}
+              style={{ width: '24px', height: '24px' }}/>
+              </ListItemIcon>
+              <ListItemText primary="Maynilad" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+              <img className="Meralco" 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Meralco.png")} 
+              alt={"Meralco"}
+              style={{ width: '24px', height: '24px' }}/>
+              </ListItemIcon>
+              <ListItemText primary="Meralco" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+              <img className="Pag-Ibig Loan" 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Pag-ibig.png")} 
+              alt={"Pag-Ibig Loan"}
+              style={{ width: '24px', height: '24px' }}/>
+              </ListItemIcon>
+              <ListItemText primary="Pag-Ibig Loan" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+              <img className="PLDT" 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Meralco.png")} 
+              alt={"PLDT"}
+              style={{ width: '24px', height: '24px' }}/>
+              </ListItemIcon>
+              <ListItemText primary="PLDT" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+              <img className="Pru Life UK" 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Meralco.png")} 
+              alt={"CPru Life UK"}
+              style={{ width: '24px', height: '24px' }}/>
+              </ListItemIcon>
+              <ListItemText primary="Pru Life UK" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+              <img className="Sky Cable" 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Meralco.png")} 
+              alt={"Sky Cable"}
+              style={{ width: '24px', height: '24px' }}/>
+              </ListItemIcon>
+              <ListItemText primary="Sky Cable" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+              <img className="Sun Life Insurance" 
+              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Meralco.png")} 
+              alt={"Sun Life Insurance"}
+              style={{ width: '24px', height: '24px' }}/>
+              </ListItemIcon>
+              <ListItemText primary="Sun Life Insurance" />
+            </ListItemButton>
+          </ListItem>
+            
+            
+            
+            {/* {billers.map((biller, index) => (
               <React.Fragment key={biller}>
                 <ListItem>
                   <ListItemButton
@@ -103,7 +208,7 @@ const BillingOperations = () => {
                 </ListItem>
                 {index !== billers.length - 1 && <Divider />}
               </React.Fragment>
-            ))}
+            ))} */}
           </List>
         </Box>
       </Box>
