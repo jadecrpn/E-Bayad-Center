@@ -1,35 +1,4 @@
 
-.first-page {
-  background-color: #F27C22;
-  padding-top: 20px; /* Adjust the padding-top value as needed */
-  color: white; /* Adjust text color as needed */
-  text-align: center; /* Center-align text within the header */
-}
-
-.image-container {
-  margin-top: 20px; /* Adjust the margin-top value as needed */
-}
-
-.centered-image {
-  max-width: 100%; /* Ensure the image doesn't exceed its container's width */
-  max-height: 200px; /* Set the maximum height as needed */
-  display: block;
-  margin: 0 auto; /* Center the image horizontally */
-}
-
-.registration-page {
-  background-color: white;
-  padding-top: 20px; /* Adjust the padding-top value as needed */
-}
-
-.registration-form {
-  /* Add styling for the registration form section */
-}
-
-.login-button {
-  /* Add styling for the login button section */
-}
-
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -401,4 +370,58 @@ footer {
 footer p {
   text-align: center;
   color: #000000;
+}
+
+/*mavi here di pa sor kung dito ko pa dapat isingit*/
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  background-color: #ffffff;
+}
+
+.App-navbar {
+  background-color: #F27C22;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-style: solid;
+  border-color: black;
+}
+
+.App-title {
+  color: #fff;
+  font-size: 20px;
+  margin: 0;
+}
+
+.App-login-button {
+  background-color: #F27C22;
+  color: rgb(10, 9, 9);
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.App-header {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.App-register-button {
+  background-color: #f9faf9;
+  color: rgb(10, 9, 9);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 10px;
 }
