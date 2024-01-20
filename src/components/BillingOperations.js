@@ -13,6 +13,17 @@ import Stack from "@mui/material/Stack";
 import ListSubheader from '@mui/material/ListSubheader';
 import Divider from '@mui/material/Divider';
 
+import Cignal from '../Assets/Cignal.png';
+import Converge from '../Assets/Converge_ICT_.png';
+import HomeCredit from '../Assets/Home-Credit.png';
+import Maynilad from '../Assets/Maynilad.png';
+import Meralco from '../Assets/Meralco.png';
+import Pagibig from '../Assets/Pag-ibig.png';
+import PLDT from '../Assets/PLDT.png';
+import Prulife from '../Assets/Pru-life.jpg';
+import Sky from '../Assets/Sky-Cable.png';
+import Sunlife from '../Assets/Sunlife.png';
+
 
 const BillingOperations = () => {
 
@@ -33,7 +44,7 @@ const BillingOperations = () => {
     </Box>
 
     <Stack spacing={2} direction="row" sx={{paddingLeft: '20%', paddingTop: 10}}>
-      <Button variant="contained" sx={{bgcolor: '#F27C22', color: 'Black', border: '2px solid #000000',}}>Back</Button>
+      <Button variant="contained" sx={{bgcolor: '#F27C22', color: 'Black', border: '2px solid #000000',}}> <a href = "/dashboard" >Back</a></Button>
       </Stack>
     
     <Box
@@ -68,7 +79,7 @@ const BillingOperations = () => {
             <ListItemButton sx={{paddingTop: '15px'}}>
               <ListItemIcon>
               <img className="Cignal" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Cignal.png")} 
+              src={Cignal} 
               alt={"Cignal"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -81,7 +92,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="Converge" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Converge_ICT_.png")} 
+              src={Converge} 
               alt={"Converge"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -94,7 +105,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="Home-Credit" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Home-Credit.png")} 
+              src={HomeCredit} 
               alt={"Home-Credit"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -107,7 +118,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="Maynilad" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Maynilad.png")} 
+              src={Maynilad} 
               alt={"Maynilad"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -120,7 +131,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="Meralco" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Meralco.png")} 
+              src={Meralco} 
               alt={"Meralco"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -133,7 +144,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="Pag-Ibig Loan" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Pag-ibig.png")} 
+              src={Pagibig} 
               alt={"Pag-Ibig Loan"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -146,7 +157,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="PLDT" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\PLDT.png")} 
+              src={PLDT} 
               alt={"PLDT"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -159,7 +170,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="Pru Life UK" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Pru-life.jpg")} 
+              src={Prulife} 
               alt={"CPru Life UK"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -172,7 +183,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="Sky Cable" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Sky-Cable.png")} 
+              src={Sky} 
               alt={"Sky Cable"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -185,7 +196,7 @@ const BillingOperations = () => {
             <ListItemButton>
               <ListItemIcon>
               <img className="Sun Life Insurance" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Sunlife.png")} 
+              src={Sunlife} 
               alt={"Sun Life Insurance"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>

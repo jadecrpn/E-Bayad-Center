@@ -1,28 +1,23 @@
 import React from 'react';
-
-
+import face from '../Assets/face.png';
 
 const Dashboard = () => {
   const buttonStyle = {
-    backgroundColor: 'transparent', // Change to your desired color
+    backgroundColor: 'transparent',
     color: '#000000',
-    border:  '1px solid rgb(0, 0, 0)',
+    border: '1px solid rgb(0, 0, 0)',
     padding: '10px 20px',
     textDecoration: 'none',
     borderRadius: '50px',
     cursor: 'pointer',
   };
 
-  
-
   return (
     <div className="container">
       <nav>
         <div className="title">E-BILLING APP</div>
         <div className="nav-buttons">
-          <button>
-            <a href="/register">LOG OUT</a>
-          </button>
+          <a href="/register">LOG OUT</a>
         </div>
       </nav>
       <section className="Dashboard">
@@ -36,12 +31,11 @@ const Dashboard = () => {
           </div>
         </div>
         <div>
-          <img className="face" src={require("C:/Users/GWYNN CUJARDO/Documents/GitHub/e-billing/src/Assets/face.png")} alt={"face"}/>
+          <img className="face" src={face} alt="face.png" />
         </div>
-      </section>  
+        
+      </section>
     </div>
-
-    
   );
 };
 
