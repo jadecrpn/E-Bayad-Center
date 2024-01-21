@@ -1,14 +1,44 @@
-import React from 'react';
+
+import { useState } from 'react';
 import { useUser } from '../hooks/useUser';
-import Navbar from '@/components/Navbar';
-import { Toaster } from 'sonner'
+import { Toaster } from 'sonner';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-    const { handleSignUp, register, watch, errors, errorMessage } = useUser();
+    const navigate = useNavigate();
+    const { errors, errorMessage, signUpUser } = useUser();
 
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+        confirmPassword: '',
+    });
+
+    const handleInputChange = (e) => {
+        const { id, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [id]: value,
+        }));
+    };
+
+    const handleSignUpAndSave = async (e) => {
+        e.preventDefault();
+    
+        try {
+          await signUpUser(formData);
+          // Store the email in local storage
+          localStorage.setItem('userEmail', formData.email);
+          // Redirect to the dashboard after successful signup
+          navigate('/dashboard');
+        } catch (error) {
+          console.error('Signup failed:', error);
+        }
+      };
+    
     return (
         <main>
-            <Navbar />
+        
             <Toaster richColors position="bottom-right" />
             <div className="min-h-screen flex items-center justify-center bg-white">
                 <div className="max-w-md w-full p-8 bg-white shadow-2xl rounded-md border-3 border-slate-700">
@@ -17,7 +47,7 @@ const Signup = () => {
                         errorMessage &&
                         <div className="text-red-500 mb-4 border-2 border-red-300 p-4 bg-red-200 rounded-md">{errorMessage}</div>
                     }
-                    <form onSubmit={handleSignUp}>
+                    <form onSubmit={handleSignUpAndSave }>
                         <div className="mb-4">
                             <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
                                 Email:
@@ -25,7 +55,8 @@ const Signup = () => {
                             <input
                                 type="text"
                                 id="email"
-                                {...register('email', { required: 'Email is required', pattern: /^\S+@\S+$/i })}
+                                value={formData.email}
+                                onChange={handleInputChange}
                                 className={`w-full px-3 py-2 border text-black ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md`}
                             />
                             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
@@ -37,7 +68,8 @@ const Signup = () => {
                             <input
                                 type="password"
                                 id="password"
-                                {...register('password', { required: 'Password is required', minLength: 6 })}
+                                value={formData.password}
+                                onChange={handleInputChange}
                                 className={`w-full px-3 py-2 border text-black ${errors.password ? 'border-red-500' : 'border-gray-300'} rounded-md`}
                             />
                             {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
@@ -49,16 +81,16 @@ const Signup = () => {
                             <input
                                 type="password"
                                 id="confirmPassword"
-                                {...register('confirmPassword', { required: 'Confirm Password is required' })}
+                                value={formData.confirmPassword}
+                                onChange={handleInputChange}
                                 className={`w-full px-3 py-2 border text-black ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'} rounded-md`}
                             />
                             {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword.message}</p>}
                         </div>
                         <button
-                            type="submit"
+                            type="submit" 
                             className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
-                        >
-                            Sign Up
+                            >Sign Up
                         </button>
                     </form>
                 </div>
