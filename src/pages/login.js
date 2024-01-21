@@ -3,6 +3,7 @@ import { useState} from 'react';
 import { useUser } from '../hooks/useUser';
 import { Toaster } from 'sonner'
 import { useNavigate } from 'react-router-dom';
+import Navigation from '../components/Navbar'; 
 
 const Login = () => {
     const navigate = useNavigate();
@@ -34,6 +35,7 @@ const Login = () => {
 
     return (
         <main>
+            <Navigation />
             <Toaster richColors position="bottom-right" />
             <div className="min-h-screen flex items-center justify-center bg-white">
                 <div className="max-w-md w-full p-8 bg-white shadow-2xl rounded-md border-3 border-slate-700">
