@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Toaster, toast } from 'sonner'
+import { toast } from 'sonner'
 
 export const useUser = () => {
     const { register, handleSubmit, reset, watch, setError, formState: { errors } } = useForm();
@@ -76,3 +76,4 @@ export const useUser = () => {
         errors,
     };
 };
+
