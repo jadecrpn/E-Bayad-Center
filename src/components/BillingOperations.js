@@ -3,72 +3,97 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import ListSubheader from '@mui/material/ListSubheader';
-import Divider from '@mui/material/Divider';
+import ListSubheader from "@mui/material/ListSubheader";
+import Divider from "@mui/material/Divider";
+import Cignal from "../Assets/Cignal.png";
 
 
 const BillingOperations = () => {
-
+  
 
   return (
     <>
-    <Box sx={{ flexGrow: 1}}>
-      <AppBar position="sticky" sx={{ bgcolor: '#F27C22', border: '2px solid #000000', }}>
-        <Toolbar>
-            <Typography variant="h5" component="div" sx={{ flexGrow: 1, fontWeight: 'bold', color:'black'}}>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar
+          position="sticky"
+          sx={{ bgcolor: "#F27C22", border: "2px solid #000000" }}
+        >
+          <Toolbar>
+            <Typography
+              variant="h5"
+              component="div"
+              sx={{ flexGrow: 1, fontWeight: "bold", color: "black" }}
+            >
               E-BILLING APP
             </Typography>
-            <Typography variant="h7" component="div" sx={{ flexGrow: -10, fontWeight: 'bold', color:'black'}}>
+            <Typography
+              variant="h7"
+              component="div"
+              sx={{ flexGrow: -10, fontWeight: "bold", color: "black" }}
+            >
               PAYBILLS SECTION
             </Typography>
-        </Toolbar>
-      </AppBar>
-    </Box>
+          </Toolbar>
+        </AppBar>
+      </Box>
 
-    <Stack spacing={2} direction="row" sx={{paddingLeft: '20%', paddingTop: 10}}>
-      <Button variant="contained" sx={{bgcolor: '#F27C22', color: 'Black', border: '2px solid #000000',}}>Back</Button>
+      <Stack
+        spacing={2}
+        direction="row"
+        sx={{ paddingLeft: "20%", paddingTop: 10 }}
+      >
+        <Button
+          variant="contained"
+          sx={{
+            bgcolor: "#F27C22",
+            color: "Black",
+            border: "2px solid #000000",
+          }}
+        >
+          Back
+        </Button>
       </Stack>
-    
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '60vh',
-      }}
-    >
 
-    <Box
-      sx={{
-        border: '2px solid #000000',
-        width: '100vh',
-        maxWidth: 360,
-        bgcolor: 'background.paper',
-        maxHeight: '40vh', // Set the maximum height for the list
-        overflowY: 'auto', // Enable vertical scrolling
-      }}
-    >
-        
-
-      <List subheader={
-              <ListSubheader sx={{ fontSize: '20px', bgcolor: '#F27C22', color: 'black', }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "60vh",
+        }}
+      >
+        <Box
+          sx={{
+            border: "2px solid #000000",
+            width: "100vh",
+            maxWidth: 360,
+            bgcolor: "background.paper",
+            maxHeight: "40vh", // Set the maximum height for the list
+            overflowY: "auto", // Enable vertical scrolling
+          }}
+        >
+          <List
+            subheader={
+              <ListSubheader
+                sx={{ fontSize: "20px", bgcolor: "#F27C22", color: "black" }}
+              >
                 Choose Your Biller
               </ListSubheader>
             }
-      >
-      <ListItem disablePadding>
+          >
+            <ListItem disablePadding>
             <ListItemButton sx={{paddingTop: '15px'}}>
               <ListItemIcon>
               <img className="Cignal" 
-              src={require("C:\\Users\\GWYNN CUJARDO\\Documents\\GitHub\\e-billing\\src\\Assets\\Cignal.png")} 
+              src={Cignal} 
               alt={"Cignal"}
               style={{ width: '24px', height: '24px' }}/>
               </ListItemIcon>
@@ -192,9 +217,7 @@ const BillingOperations = () => {
               <ListItemText primary="Sun Life Insurance" />
             </ListItemButton>
           </ListItem>
-            
-            
-            
+
             {/* {billers.map((biller, index) => (
               <React.Fragment key={biller}>
                 <ListItem>
@@ -221,4 +244,5 @@ const BillingOperations = () => {
     </>
   );
 };
+
 export default BillingOperations;

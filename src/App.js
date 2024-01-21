@@ -36,11 +36,15 @@
 
 import React from 'react'
 import BillingOperations from './components/BillingOperations'
+import Transaction from './components/Transaction'
+
 
 const App = () => {
   return (
-    <><BillingOperations /></>
+    <><Transaction /></>
   )
 }
 
 export default App
+
+
