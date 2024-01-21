@@ -1,6 +1,6 @@
 import React from 'react';
 import { useUser } from '../hooks/useUser';
-import Navbar from '@/components/Navbar';
+
 import { Toaster } from 'sonner'
 
 const Login = () => {
@@ -8,7 +8,7 @@ const Login = () => {
 
     return (
         <main>
-            <Navbar />
+
             <Toaster richColors position="bottom-right" />
             <div className="min-h-screen flex items-center justify-center bg-white">
                 <div className="max-w-md w-full p-8 bg-white shadow-2xl rounded-md border-3 border-slate-700">

@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import RegisterForm from './components/RegisterForm';
 import Dashboard from './components/Dashboard';
 import BillingOperations from './components/BillingOperations';
-
+import Login from './pages/login'
+import Signup from './pages/register'
 
 import './App.css';
 import Sbsl from './Assets/Sbsl.png';
@@ -25,7 +26,7 @@ const App = () => {
           <div className="title">E-BILLING APP</div>
           <Link to="/dashboard">Dashboard</Link>
           <div className="nav-buttons">
-            <Link to="/register">LOG IN</Link>
+            <Link to="/login">LOG IN</Link>
           </div>
         </nav>
 
@@ -33,7 +34,7 @@ const App = () => {
           <header className="App-header">
             <img src={Sbsl} alt="Sbsl.png" />
             <div className="main_button">
-              <Link to="/register" style={buttonStyle}>
+              <Link to="/signup" style={buttonStyle}>
                 REGISTER HERE
               </Link>
             </div>
@@ -44,6 +45,8 @@ const App = () => {
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/billing" element={<BillingOperations />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
 
       </div>
