@@ -41,15 +41,16 @@ const Signup = () => {
         <main>
            <Navigation />
             <Toaster richColors position="bottom-right" />
-            <div className="min-h-screen flex items-center justify-center bg-white">
-                <div className="max-w-md w-full p-8 bg-white shadow-2xl rounded-md border-3 border-slate-700">
-                    <h2 className="text-3xl font-extrabold text-gray-800 mb-6">Sign Up</h2>
+            <div className="div-container1">
+                
+                    
                     {
                         errorMessage &&
                         <div className="text-red-500 mb-4 border-2 border-red-300 p-4 bg-red-200 rounded-md">{errorMessage}</div>
                     }
                     <form onSubmit={handleSignUpAndSave }>
-                        <div className="mb-4">
+                    <h2 className="head-title">Sign Up</h2>
+                        <div className="outerBox">
                             <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
                                 Email:
                             </label>
@@ -62,7 +63,7 @@ const Signup = () => {
                             />
                             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
                         </div>
-                        <div className="mb-4">
+                        <div className="outerBox">
                             <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
                                 Password:
                             </label>
@@ -75,7 +76,7 @@ const Signup = () => {
                             />
                             {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
                         </div>
-                        <div className="mb-4">
+                        <div className="outerBox">
                             <label htmlFor="confirmPassword" className="block text-gray-700 text-sm font-bold mb-2">
                                 Confirm Password:
                             </label>
@@ -95,7 +96,7 @@ const Signup = () => {
                         </button>
                     </form>
                 </div>
-            </div>
+            
         </main>
     );
 };
