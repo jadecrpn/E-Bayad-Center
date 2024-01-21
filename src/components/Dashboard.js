@@ -4,7 +4,7 @@ import face from '../Assets/face.png';
 
 const Dashboard = () => {
   const [userEmail, setUserEmail] = useState(null);
-  
+
   useEffect(() => {
     const storedEmail = localStorage.getItem('userEmail');
     setUserEmail(storedEmail);
@@ -28,7 +28,9 @@ const Dashboard = () => {
           <a href="/login">LOG OUT</a>
         </div>
       </nav>
+
       <section className="Dashboard">
+        
         <div className="About-main">
           <h1>WELCOME,{userEmail && <span>{userEmail}</span>} </h1>
           <p>REDUCE COST, SAVE TIME, AND IMPROVE CASH FLOW WITH E-BILLING APP</p>
@@ -38,6 +40,7 @@ const Dashboard = () => {
             </a>
           </div>
         </div>
+
         <div>
           <img className="face" src={face} alt="face.png" />
         </div>
