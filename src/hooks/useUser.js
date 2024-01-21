@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Toaster, toast } from 'sonner'
+import { toast } from 'sonner'
 
 export const useUser = () => {
     const { register, handleSubmit, reset, watch, setError, formState: { errors } } = useForm();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleSignUp = (data) => {
+    const checkEmailExists = (email, accounts) => {
+        return accounts.some(account => account.email === email);
+    };
+
+    const signUpUser = async (data) => {
         console.log(data);
         // Check if passwords match
         if (data.password !== data.confirmPassword) {
@@ -15,64 +19,59 @@ export const useUser = () => {
             return;
         }
 
-        let accounts = localStorage.getItem('accounts');
+        let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
 
-        if (!accounts) {
-            accounts = [];
-        } else {
-            accounts = JSON.parse(accounts);
-
-            for (let i = 0; i < accounts.length; i++) {
-                if (accounts[i].email === data.email) {
-                    setErrorMessage('Email already registered.');
-                    return;
-                }
-            }
+        if (checkEmailExists(data.email, accounts)) {
+            setErrorMessage('Email already registered.');
+            return;
         }
-        accounts.push(data);
 
+        accounts.push(data);
         localStorage.setItem('accounts', JSON.stringify(accounts));
-        toast.success('Account successfully registered!')
+
+        toast.success('Account successfully registered!');
         reset();
         setErrorMessage('');
     };
 
+
     const handleSignIn = (data) => {
-        let accounts = localStorage.getItem('accounts');
+        let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
 
-        if (accounts) {
-            accounts = JSON.parse(accounts);
+        console.log('Input email:', data.email);
+        console.log('Input password:', data.password);
 
-            for (let i = 0; i < accounts.length; i++) {
-                if (data.email === accounts[i].email && data.password === accounts[i].password) {
-                    console.log('Successfully logged-in!')
-                    toast.success('Successfully logged-in!')
-                    setIsLoggedIn(true);
-                    setErrorMessage('');
-                    reset();
-                    return;
-                } else {
-                    setErrorMessage('Invalid email or password. Please try again.');
-                    return;
-                }
-            }
+        const foundAccount = accounts.find(account => {
+            console.log('Account email:', account.email);
+            console.log('Account password:', account.password);
+            return account.email === data.email && account.password === data.password;
+        });
+
+        if (foundAccount) {
+            console.log('Successfully logged-in!');
+            toast.success('Successfully logged-in!');
+            setIsLoggedIn(true);
+            setErrorMessage('');
+            reset();
+        } else {
+            console.log('Login failed. No matching account found.');
+            setErrorMessage('Invalid email or password. Please try again.');
         }
-
-        setErrorMessage('Account not found. Please sign up.');
     };
 
     const handleSignOut = () => {
         setIsLoggedIn(false);
     };
-
     return {
+        
         isLoggedIn,
         errorMessage,
-        handleSignUp: handleSubmit(handleSignUp),
-        handleSignIn: handleSubmit(handleSignIn),
+        signUpUser: handleSubmit(signUpUser), 
+        handleSignIn: (e) => handleSubmit((data) => handleSignIn(e, data)),
         handleSignOut,
         register,
         watch,
         errors,
     };
 };
+
