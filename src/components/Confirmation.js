@@ -60,7 +60,7 @@ const Confirmation = () => {
           padding: '15px',
         }}
       >
-        <Typography variant="h6" component="div" sx={{ color: 'black' }}>
+        <Typography variant="h6" component="div" sx={{ color: 'black',  fontWeight: 'bold' }}>
           Transaction Summary
         </Typography>
 
@@ -70,10 +70,10 @@ const Confirmation = () => {
         <img
           src={billerImage}
           alt="Biller Logo"
-          style={{ width: '40px', height: '40px', marginTop: '5px' }}
+          style={{ width: '40px', height: '40px', marginTop: '5px', marginBottom: '5vh' }}
         />
 
-        <Typography variant="body1" component="div" sx={{ color: 'black', marginTop: 2 }}>
+        <Typography variant="body1" component="div" sx={{ color: 'black', marginTop: 2, textAlign: 'right'}}>
           Amount: {amount}
         </Typography>
         <Typography variant="body1" component="div" sx={{ color: 'black' }}>
@@ -95,7 +95,8 @@ const Confirmation = () => {
             bgcolor: '#F27C22',
             color: 'Black',
             border: '2px solid #000000',
-            margin: '10px auto',
+            margin: '30px auto',
+            marginBottom:'1vh'
           }}
           onClick={handleConfirmation}
         >
