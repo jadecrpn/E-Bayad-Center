@@ -14,9 +14,13 @@ Limitation:
 
 
 Corpin
+-Registration Section/Log in Section
 
 Cujardo
+-Pay Bills section
 
 Malic
+-Main Section
 
 Tuazon
+-Front Page 
