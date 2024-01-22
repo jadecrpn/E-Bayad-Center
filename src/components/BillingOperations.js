@@ -116,7 +116,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Home-Credit", HomeCredit)}>
               <ListItemIcon>
               <img className="Home-Credit" 
               src={HomeCredit} 
@@ -129,7 +130,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Maynilad", Maynilad)}>
               <ListItemIcon>
               <img className="Maynilad" 
               src={Maynilad} 
@@ -142,7 +144,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Meralco", Meralco)}>
               <ListItemIcon>
               <img className="Meralco" 
               src={Meralco} 
@@ -155,7 +158,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton onClick={() => handleBillerClick("Pag-ibig")}>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Pag-Ibig", Pagibig)}>
               <ListItemIcon>
               <img className="Pag-Ibig Loan" 
               src={Pagibig} 
@@ -168,7 +172,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("PLDT", PLDT)}>
               <ListItemIcon>
               <img className="PLDT" 
               src={PLDT} 
@@ -181,7 +186,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Pru Life UK", Prulife)}>
               <ListItemIcon>
               <img className="Pru Life UK" 
               src={Prulife} 
@@ -194,7 +200,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Sky-Cable", Sky)}>
               <ListItemIcon>
               <img className="Sky Cable" 
               src={Sky} 
@@ -207,7 +214,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("SunLife Insurance", Sunlife)}>
               <ListItemIcon>
               <img className="Sun Life Insurance" 
               src={Sunlife} 

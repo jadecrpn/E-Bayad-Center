@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,9 +14,14 @@ import Select from "@mui/material/Select";
 
 const Transaction = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const [billerName, setBillerName] = useState('');
     const [billerImage, setBillerImage] = useState('');
     const [bank, setBank] = useState('');
+    const [amount, setAmount] = useState(''); // Add state for amount
+  const [accountNumber, setAccountNumber] = useState(''); // Add state for accountNumber
+  const [accountName, setAccountName] = useState(''); // Add state for accountName
+  const [bankAccountNumber, setBankAccountNumber] = useState(''); // Add state for bankAccountNumber
     
     useEffect(() => {
         // Retrieve state from the location
@@ -28,6 +33,25 @@ const Transaction = () => {
     
       const handleChange = (event) => {
         setBank(event.target.value);
+      };
+
+      const handleNext = () => {
+    //     const amount = ('');
+    // const accountNumber = ('');
+    // const accountName = ('');
+    // const bankAccountNumber = ('');
+        // Navigate to the Confirmation component with relevant data
+        navigate('/confirmation', {
+          state: {
+            billerName,
+            billerImage,
+            amount,
+            accountNumber,
+            accountName ,
+            bank,
+            bankAccountNumber ,
+          },
+        });
       };
   
 
@@ -103,24 +127,29 @@ const Transaction = () => {
         <TextField
           label="Amount"
           variant="outlined"
-          type="amount"
+          type="number" // Assuming amount is a number
           margin="normal"
           fullWidth
-          sx={{}}
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)} // Update state on change
         />
         <TextField
           label="Account No. (10-digits)"
           variant="outlined"
-          type="accNumber"
+          type="text"
           margin="normal"
           fullWidth
+          value={accountNumber}
+          onChange={(e) => setAccountNumber(e.target.value)}
         />
         <TextField
           label="Account Name"
           variant="outlined"
-          type="accName"
+          type="text"
           margin="normal"
           fullWidth
+          value={accountName}
+          onChange={(e) => setAccountName(e.target.value)}
         />
 
         <Box sx={{ minWidth: 385, marginTop: 2 }}>
@@ -156,9 +185,11 @@ const Transaction = () => {
         <TextField
           label="Bank Account No."
           variant="outlined"
-          type="bankAccNumber"
+          type="text"
           margin="normal"
           fullWidth
+          value={bankAccountNumber}
+          onChange={(e) => setBankAccountNumber(e.target.value)}
         />
 
         <Button
@@ -169,6 +200,7 @@ const Transaction = () => {
             border: "2px solid #000000",
             margin: "10px auto",
           }}
+          onClick={handleNext}
         >
           Next
         </Button>
