@@ -5,31 +5,28 @@ import Sbsl from '../Assets/Sbsl.png';
 
 const Front = () => {
   const buttonStyle = {
-    backgroundColor: 'transparent',
+    backgroundColor: '#be800d',
     color: '#000000',
-    padding: '10px 20px',
+    padding: '20px 20px',
     textDecoration: 'none',
     borderRadius: '50px',
     cursor: 'pointer',
-    border: '2px solid rgb(0, 0, 0)', 
   };
 
   return (
     <div className="container">
       <nav>
         <div className="title">E-BILLING APP</div>
-        
-
+        <button className="nav-buttons">
           <Link to="/login" style={buttonStyle}>
             LOG IN
           </Link>
-
-        
+        </button>
       </nav>
       <div>
         <header className="App-header">
           <img src={Sbsl} alt="Sbsl.png" />
-          <div className="register_button">
+          <div className="main_button">
             <Link to="/signup" style={buttonStyle}>
               REGISTER HERE
             </Link>
