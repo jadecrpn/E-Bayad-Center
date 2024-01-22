@@ -10,6 +10,7 @@ import Navigation from './components/Navbar';
 import './App.css';
 import Transaction from './components/Transaction';
 import Confirmation from './components/Confirmation';
+import Receipt from './components/Receipt';
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
               <Route path="/billing" element={<BillingOperations />} />
               <Route path="/transaction" element={<Transaction />} />
               <Route path="/confirmation" element={<Confirmation />} />
+              <Route path="/receipt" element={<Receipt />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
             </Routes>

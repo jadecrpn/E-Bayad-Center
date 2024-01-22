@@ -19,7 +19,17 @@ const Confirmation = () => {
     // Perform any necessary logic for confirming the transaction
 
     // You can navigate to a success page or any other page as needed
-    navigate('/success');
+    navigate('/receipt', {
+        state: {
+          billerName,
+          billerImage,
+          amount,
+          accountNumber,
+          accountName,
+          bank,
+          bankAccountNumber,
+        },
+      });
   };
 
   return (

@@ -5,7 +5,7 @@ import Sbsl from '../Assets/Sbsl.png';
 
 const Front = () => {
   const buttonStyle = {
-    backgroundColor: '#be800d',
+    backgroundColor: '#F27C22',
     color: '#000000',
     padding: '20px 20px',
     textDecoration: 'none',
