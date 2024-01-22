@@ -10,7 +10,12 @@ const Dashboard = () => {
   useEffect(() => {
     const storedEmail = localStorage.getItem('userEmail');
     setUserEmail(storedEmail);
-  }, []);
+}, []);
+
+const handleLogout = () => {
+    localStorage.removeItem('userEmail');
+    setUserEmail(null);
+};
 
   const buttonStyle = {
     backgroundColor: 'transparent',
@@ -26,7 +31,7 @@ const Dashboard = () => {
     <div className="container">
       <nav>
         <div className="title">E-BILLING APP</div>
-        <Link to="/login" style={buttonStyle}>
+        <Link to="/login" style={buttonStyle} onClick={handleLogout}>
             LOG OUT
           </Link>
       </nav>
