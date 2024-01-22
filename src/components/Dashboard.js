@@ -10,6 +10,11 @@ const Dashboard = () => {
     setUserEmail(storedEmail);
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem('userEmail');
+    setUserEmail(null);
+};
+
   const buttonStyle = {
     backgroundColor: 'transparent',
     color: '#000000',
@@ -35,7 +40,7 @@ const Dashboard = () => {
           <h1>WELCOME,{userEmail && <span>{userEmail}</span>} </h1>
           <p>REDUCE COST, SAVE TIME, AND IMPROVE CASH FLOW WITH E-BILLING APP</p>
           <div className="main_button">
-            <a href="/billing" style={buttonStyle}>
+            <a href="/billing" style={buttonStyle}  onClick={handleLogout}>
               PAY BILLS HERE!
             </a>
           </div>
