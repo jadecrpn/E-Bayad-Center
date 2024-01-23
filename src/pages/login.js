@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import Navigation from '../components/Navbar';
@@ -5,6 +6,18 @@ import { useUser } from '../hooks/useUser'
 import { Toaster } from 'sonner';
 import { toast } from 'sonner';
 
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    // Check if any of the required fields are empty
+    const { email, password } = formData;
 
 
     const Login = () => {
@@ -19,13 +32,10 @@ import { toast } from 'sonner';
 
         const [errorMessage] = useState('');
 
-        const handleInputChange = (e) => {
-            const { id, value } = e.target;
-            setFormData((prevData) => ({
-                ...prevData,
-                [id]: value,
-            }));
-        };
+
+    try {
+      event.preventDefault();
+
 
         const handleSubmit = async (e) => {
             e.preventDefault();
@@ -68,6 +78,7 @@ import { toast } from 'sonner';
                     )}
 
                     <form onSubmit={handleSubmit}>
+
                         <h2 className="head-title">Login</h2>
                         <div className="outerBox">
                             <label htmlFor="email" className="labelBox">
@@ -98,9 +109,9 @@ import { toast } from 'sonner';
                             Sign In
                         </button>
                     </form>
-                </div>
-            </main>
-        );
-    };
+      </div>
+    </>
+  );
+};
 
-    export default Login;
+export default Login;

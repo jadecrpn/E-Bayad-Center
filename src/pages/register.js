@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Assuming you are using react-router
-import { useUser } from '../hooks/useUser';
-import { Toaster } from 'sonner';
-import Navigation from '../components/Navbar';
-import { toast } from 'sonner'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Assuming you are using react-router
+import { useUser } from "../hooks/useUser";
+import { Toaster } from "sonner";
+import Navigation from "../components/Navbar";
+import { toast } from "sonner";
 
 const Signup = () => {
+
     const navigate = useNavigate();
     const { errors, errorMessage, signUpUser } = useUser();
   
@@ -71,6 +72,7 @@ const Signup = () => {
                     </div>
                 )}
                 <form onSubmit={handleSignUpAndSave}>
+
                     <h2 className="head-title">Sign Up</h2>
                         <div className="outerBox">
                             <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
@@ -117,10 +119,9 @@ const Signup = () => {
                             >Sign Up
                         </button>
                     </form>
-                </div>
-            
-        </main>
-    );
+      </div>
+    </>
+  );
 };
 
 export default Signup;
