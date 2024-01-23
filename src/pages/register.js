@@ -1,75 +1,145 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Assuming you are using react-router
-import { useUser } from '../hooks/useUser';
-import { Toaster } from 'sonner';
-import Navigation from '../components/Navbar';
-import { toast } from 'sonner'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Assuming you are using react-router
+import { useUser } from "../hooks/useUser";
+import { Toaster } from "sonner";
+import Navigation from "../components/Navbar";
+import { toast } from "sonner";
+import { Box } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 const Signup = () => {
-    const navigate = useNavigate();
-    const { errors, errorMessage, signUpUser,  } = useUser();
+  const navigate = useNavigate();
+  const { errors, errorMessage, signUpUser } = useUser();
 
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-        confirmPassword: '',
-    });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-    const handleInputChange = (e) => {
-        const { id, value } = e.target;
-        setFormData((prevData) => ({ ...prevData, [id]: value }));
-    };
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [id]: value }));
+  };
 
-    const handleSignUpAndSave = async (e) => {
-        e.preventDefault();
+  const handleSignUpAndSave = async (e) => {
+    e.preventDefault();
 
-        // Additional validation checks can be added here
+    // Additional validation checks can be added here
 
-        const { email, password, confirmPassword } = formData;
-        
+    const { email, password, confirmPassword } = formData;
 
-        // Check if any of the required fields are empty
-        if (!email || !password || !confirmPassword) {
-        console.error('Please fill in all required fields');
-        toast.error('Signup failed. Fill the Form.');
-        return;
+    // Check if any of the required fields are empty
+    if (!email || !password || !confirmPassword) {
+      console.error("Please fill in all required fields");
+      toast.error("Signup failed. Fill the Form.");
+      return;
     }
 
-        // Check if password and confirmPassword match
-        if (password !== confirmPassword) {
-            // Set an error message
-            // You might want to display this error message in your UI
-            console.error("Passwords don't match");
-            toast.error('Signup failed. Please try again.');
-            return;
-        }
+    // Check if password and confirmPassword match
+    if (password !== confirmPassword) {
+      // Set an error message
+      // You might want to display this error message in your UI
+      console.error("Passwords don't match");
+      toast.error("Signup failed. Please try again.");
+      return;
+    }
 
-        try {
-            // Call the signup function from useUser hook
-            await signUpUser({ email, password });
-            
-            localStorage.setItem('userEmail', formData.email);
-            navigate('/dashboard');
-            toast.success('Account successfully registered!');
-            return true;
+    try {
+      // Call the signup function from useUser hook
+      await signUpUser({ email, password });
 
-        } catch (error) {
-            // Handle signup error
-            console.error('Signup failed:', error.message);
-        }
-    };
-    
-    return (
-        <main>
-            <Navigation />
-            <Toaster richColors position="bottom-right" />
-            <div className="div-container1">
-                {errorMessage && (
-                    <div className="text-red-500 mb-4 border-2 border-red-300 p-4 bg-red-200 rounded-md">
-                        {errorMessage}
-                    </div>
-                )}
-                <form onSubmit={handleSignUpAndSave}>
+      localStorage.setItem("userEmail", formData.email);
+      navigate("/dashboard");
+      toast.success("Account successfully registered!");
+      return true;
+    } catch (error) {
+      // Handle signup error
+      console.error("Signup failed:", error.message);
+    }
+  };
+
+  return (
+    <>
+      <Navigation />
+      <Toaster richColors position="bottom-right" />
+      <div className="div-container1" style={{ minHeight: '83.8vh' }}>
+        {errorMessage && (
+          <div className="text-red-500 mb-4 border-2 border-red-300 p-4 bg-red-200 rounded-md">
+            {errorMessage}
+          </div>
+        )}
+
+        {/* <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "55vh",
+            border: "2px solid #000000",
+            width: "24%",
+            marginTop: "-12vh",
+            padding: "15px",
+          }}
+        >
+          <Typography
+            variant="h5"
+            component="div"
+            sx={{
+              flexGrow: 1,
+              fontWeight: "bold",
+              color: "black",
+              marginTop: "4vh",
+            }}
+          >
+            REGISTER
+          </Typography>
+          <TextField
+            label="Username"
+            variant="outlined"
+            type="text" // Assuming amount is a number
+            margin="normal"
+            fullWidth
+            value={formData.email}
+            onChange={handleInputChange}
+          />
+          <TextField
+            label="Password"
+            variant="outlined"
+            type="text"
+            margin="normal"
+            fullWidth
+            value={formData.password}
+            onChange={handleInputChange}
+          />
+            <TextField
+            label="Confirm Password"
+            variant="outlined"
+            type="text"
+            margin="normal"
+            fullWidth
+            value={formData.confirmPassword}
+            onChange={handleInputChange}
+          />
+
+
+          <Button
+            variant="contained"
+            sx={{
+              bgcolor: "#F27C22",
+              color: "Black",
+              border: "2px solid #000000",
+              margin: "4vh auto",
+            }}
+            // onClick={handleNext}
+          >
+            REGISTER
+          </Button> */}
+
+          <form onSubmit={handleSignUpAndSave}>
                     <h2 className="head-title">Sign Up</h2>
                         <div className="outerBox">
                             <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
@@ -116,10 +186,10 @@ const Signup = () => {
                             >Sign Up
                         </button>
                     </form>
-                </div>
-            
-        </main>
-    );
+        {/* </Box> */}
+      </div>
+    </>
+  );
 };
 
 export default Signup;

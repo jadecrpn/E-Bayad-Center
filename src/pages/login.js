@@ -77,7 +77,7 @@ const Login = () => {
           </div>
         )}
 
-        <Box
+        {/* <Box
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -127,9 +127,9 @@ const Login = () => {
             // onClick={handleNext}
           >
             LOG IN
-          </Button>
+          </Button> */}
 
-          {/* <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
                         <h2 className="head-title">Login</h2>
                         <div className="outerBox">
                             <label htmlFor="email" className="labelBox">
@@ -159,8 +159,8 @@ const Login = () => {
                         <button type="submit" className="signup_button">
                             Sign In
                         </button>
-                    </form> */}
-        </Box>
+                    </form>
+        {/* </Box> */}
       </div>
     </>
   );
