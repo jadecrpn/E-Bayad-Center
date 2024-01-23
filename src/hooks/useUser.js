@@ -2,41 +2,79 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner'
+import { useNavigate } from 'react-router-dom';
+
 
 
 export const useUser = () => {
+    const navigate = useNavigate();
     const { register,  reset, setError, watch, formState: { errors } } = useForm();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
     const signUpUser = async (data) => {
+
         if (data.password !== data.confirmPassword) {
             setError('confirmPassword', { message: 'Passwords do not match' });
             return false; // Indicate failure
-        }
-
-        const accountsKey = 'accounts';
-        let accounts = JSON.parse(localStorage.getItem(accountsKey)) || [];
+        } 
 
         try {
-            const hashedPassword = await hashPassword(data.password);
+          const response = await fetch('http://localhost:3005/accounts', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+          });
+  
+          if (!response.ok) {
+              // Handle the case where the server returns an error
+              console.error('Registration failed');
+              return false;
+          }
+  
+          // Registration successful, you can now redirect to the dashboard or perform any other action
+          console.log('Registration successful');
+          // Redirect to the dashboard or perform other actions here
+          return true;
+      } catch (error) {
+          console.error('Error during registration', error);
+          return false;
+      }
+  };
 
-            const userKey = `user_${data.email}`;
-            accounts.push({ key: userKey, ...data, password: hashedPassword });
-            localStorage.setItem(accountsKey, JSON.stringify(accounts));
 
-            toast.success('Account successfully registered!');
-            reset();
-            setErrorMessage('');
+
+        const loginUser = async (formData) => {
+            console.log('Trying to login with:', formData);
+        
+            try {
+                const apiUrl = 'http://localhost:3005/accounts';
+                const response = await fetch(apiUrl);
+                const accounts = await response.json();
+                console.log('Fetched accounts:', accounts);
+        
+                const user = accounts.find((account) => account.email.toLowerCase() === formData.email.toLowerCase());
+        
+                if (!user) {
+                    console.log('User not found');
+                    setErrorMessage('User not found');
+                    return null;
+                }
+
+                navigate('/dashboard'); // Redirect to the dashboard
+                toast.success('Login successful!');
+                console.log('User found:', user);
             
-            return true;
-
-        } catch (error) {
-            console.error('Signup failed:', error.message);
-            setErrorMessage('Signup failed. Please try again.');
-            return false; // Indicate failure
-        }
-    };
+                // Rest of your code...
+            
+                } catch (error) {
+                console.error('Login failed:', error.message);
+                setErrorMessage('Login failed. Please try again.');
+                return null;
+            }
+        };
 
     const hashPassword = async (password) => {
         const encoder = new TextEncoder();
@@ -54,32 +92,6 @@ export const useUser = () => {
     };
 
 
-    const handleSignIn = async ({ email, password }) => {
-        try {
-            // Check if the user account exists
-            const user = await getUserByEmail(email);
-    
-            if (!user) {
-                return { success: false, error: 'Account does not exist' };
-            }
-    
-            // Check if the provided password matches the stored password
-            const isPasswordValid = await validatePassword(password, user.password);
-
-            if (!isPasswordValid) {
-                return { success: false, error: 'Invalid password' };
-            }
-    
-            // Additional checks for account validity and complete information can be added here
-            // For example, you might check if the user account is active, has verified email, etc.
-    
-            return { success: true, user };
-
-        } catch (error) {
-            console.error('Error during sign-in:', error.message);
-            return { success: false, error: 'Unexpected error during sign-in' };
-        }
-    };
     
 
     const handleSignOut = () => {
@@ -87,70 +99,27 @@ export const useUser = () => {
         setIsLoggedIn(false);
     };
 
-    
-    const getUserByEmail = async (email) => {
-        try {
-            const accountsKey = 'accounts';
-            console.log('Email:', email);
-    
-            const accounts = JSON.parse(localStorage.getItem(accountsKey)) || [];
-            console.log('Accounts:', accounts);
-    
-            const user = accounts.find((account) => account.email === email);
-    
-            if (!user) {
-                console.log('User not found');
-                toast.error('Account does not exist. Please try again.');
-                throw new Error('User not found');
-            }
-    
-            console.log('User found:', user);
-            return user;
-        } catch (error) {
-            console.error('Error fetching user by email:', error.message);
-            toast.error('Error during sign-in. Please try again.');
-            throw new Error('Error fetching user');
-        }
+    const validatePassword = async (enteredPassword, hashedPassword) => {
+        const enteredPasswordHash = await hashPassword(enteredPassword);
+        return enteredPasswordHash === hashedPassword;
     };
 
-const validatePassword = async (inputPassword, storedPassword) => {
-    try {
-        // Your logic to compare inputPassword with storedPassword
-        const hashedInputPassword = await hashPassword(inputPassword);
-
-        if (hashedInputPassword !== storedPassword) {
-            // Passwords do not match
-            console.error('Invalid password');
-            toast.error('Invalid password. Please try again.');
-            return false;
-        }
-
-        return true; // Passwords match
-    } catch (error) {
-        console.error('Error validating password:', error.message);
-        toast.error('Error during sign-in. Please try again.');
-        throw new Error('Error validating password');
-    }
-};
+  
 
 
     return {
-        getUserByEmail,
         validatePassword,
         isLoggedIn,
         errorMessage,
+        loginUser,
         setErrorMessage,
-        signUpUser,  // Pass signUpUser as an argument to handleSubmit
-        handleSignIn,  // Pass handleSignIn as an argument to handleSubmit
+        signUpUser,
         handleSignOut,
         register,
         watch,
         errors,
-        hashPassword
+        hashPassword,
+        
     };
 };
 
-export const validateFormData = (formData) => {
-    // Implement your validation logic here
-    return true; // For now, always return true as a placeholder
-};

@@ -6,69 +6,73 @@ import Navigation from "../components/Navbar";
 import { toast } from "sonner";
 
 const Signup = () => {
-  const navigate = useNavigate();
-  const { errors, errorMessage, signUpUser } = useUser();
 
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+    const navigate = useNavigate();
+    const { errors, errorMessage, signUpUser } = useUser();
+  
+    const [formData, setFormData] = useState({
+      email: '',
+      password: '',
+      confirmPassword: '',
+    });
+  
+    const handleInputChange = (e) => {
+      const { id, value } = e.target;
+      setFormData((prevData) => ({ ...prevData, [id]: value }));
+    };
+  
+    const handleSignUpAndSave = async (e) => {
+        e.preventDefault();
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [id]: value }));
-  };
+        // Perform additional validation if needed
+        if (formData.password !== formData.confirmPassword) {
+            // Handle password mismatch
+            toast.error('Passwords do not match');
+            return;
+        }
 
-  const handleSignUpAndSave = async (e) => {
-    e.preventDefault();
+        // Assuming you have a backend server running at http://localhost:3005
+        const apiUrl = 'http://localhost:3005/accounts';
 
-    // Additional validation checks can be added here
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
 
-    const { email, password, confirmPassword } = formData;
+            if (!response.ok) {
+                // Handle server-side error
+                toast.error('Failed to register user');
+                return;
+            }
 
-    // Check if any of the required fields are empty
-    if (!email || !password || !confirmPassword) {
-      console.error("Please fill in all required fields");
-      toast.error("Signup failed. Fill the Form.");
-      return;
-    }
+            // Registration successful
+            toast.success('User registered successfully');
+            
+            localStorage.setItem('userEmail', formData.email);
+            navigate('/dashboard');
+        } catch (error) {
+            console.error('Error during registration', error);
+            toast.error('An error occurred');
+        }
+    };
 
-    // Check if password and confirmPassword match
-    if (password !== confirmPassword) {
-      // Set an error message
-      // You might want to display this error message in your UI
-      console.error("Passwords don't match");
-      toast.error("Signup failed. Please try again.");
-      return;
-    }
 
-    try {
-      // Call the signup function from useUser hook
-      await signUpUser({ email, password });
+    return (
+        <main>
+            <Navigation />
+            <Toaster richColors position="bottom-right" />
+            <div className="div-container1">
+                {errorMessage && (
+                    <div className="text-red-500 mb-4 border-2 border-red-300 p-4 bg-red-200 rounded-md">
+                        {errorMessage}
+                    </div>
+                )}
+                <form onSubmit={handleSignUpAndSave}>
 
-      localStorage.setItem("userEmail", formData.email);
-      navigate("/dashboard");
-      toast.success("Account successfully registered!");
-      return true;
-    } catch (error) {
-      // Handle signup error
-      console.error("Signup failed:", error.message);
-    }
-  };
-
-  return (
-    <>
-      <Navigation />
-      <Toaster richColors position="bottom-right" />
-      <div className="div-container1" style={{ minHeight: '83.8vh' }}>
-        {errorMessage && (
-          <div className="text-red-500 mb-4 border-2 border-red-300 p-4 bg-red-200 rounded-md">
-            {errorMessage}
-          </div>
-        )}
-
-          <form onSubmit={handleSignUpAndSave}>
                     <h2 className="head-title">Sign Up</h2>
                         <div className="outerBox">
                             <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
