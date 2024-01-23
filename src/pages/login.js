@@ -1,22 +1,23 @@
-    import React, { useState } from 'react';
-    import { useNavigate } from 'react-router-dom'; 
-    import Navigation from '../components/Navbar';
-    import { useUser } from '../hooks/useUser';
-    import { Toaster } from 'sonner';
-    import { toast } from 'sonner'
-
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
+import Navigation from '../components/Navbar';
+import { useUser } from '../hooks/useUser'
+import { Toaster } from 'sonner';
+import { toast } from 'sonner';
 
 
 
     const Login = () => {
+
         const navigate = useNavigate();
-        const { handleSignIn } = useUser();
+        const { loginUser } = useUser(); // Assuming your useUser hook has a function loginUser
+
         const [formData, setFormData] = useState({
             email: '',
             password: '',
         });
-        const [errorMessage,] = useState('');
-        
+
+        const [errorMessage] = useState('');
 
         const handleInputChange = (e) => {
             const { id, value } = e.target;
@@ -26,48 +27,35 @@
             }));
         };
 
-        const handleSubmit = async (event) => {
-                // Check if any of the required fields are empty
-            const { email, password } = formData;
-                
-            if (!email || !password) {
-                console.error('Please fill in all required fields');
-                toast.error('Login failed. Fill the Form.');
-                return;
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+          
+            // Add validation if email and password are not empty
+            if (!formData.email || !formData.password) {
+              toast.error('Email and password are required.');
+              return;
             }
 
-            try {
-                event.preventDefault();
+            
         
-
-                // Call the handleSignIn function from useUser hook
-                const signInResult = await handleSignIn(formData);
-
-                if (signInResult.success) {
-                    // Handle successful login, e.g., redirect to dashboard
-                    localStorage.setItem('userEmail', formData.email);
-                    navigate('/dashboard');
+            try {
+                // Call the loginUser function from useUser hook
+                const user = await loginUser(formData);
+        
+                // If login is successful, you can redirect to the dashboard or do other actions
+                if (user) {
+                    navigate('/dashboard'); // Redirect to the dashboard
                     toast.success('Login successful!');
                 } else {
-                    // Handle sign-in failure
-                    console.error('Sign-in failed:', signInResult.error);
-                
-                    if (signInResult.error === 'Invalid password') {
-                        // Display an error message for invalid password
-                        toast.error('Invalid password. Please try again.');
-                    } else {
-                        // Display a generic error message for other sign-in failures
-                        toast.error('Login failed. Please try again.');
-                    }
+                    // If login is not successful, display an error message
+                    toast.error('Invalid email or password. Please try again.');
                 }
-
             } catch (error) {
-                    // Handle unexpected errors during login
-                console.error('Login failed:', error);
-                toast.error('Login failed. Please try again.');
+                console.error('Login failed', error);
+                toast.error('An error occurred during login. Please try again.');
             }
         };
-
+       
         return (
             <main>
                 <Navigation />
