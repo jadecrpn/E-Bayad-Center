@@ -4,10 +4,6 @@ import Navigation from "../components/Navbar";
 import { useUser } from "../hooks/useUser";
 import { Toaster } from "sonner";
 import { toast } from "sonner";
-import { Box } from "@mui/material";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -77,58 +73,6 @@ const Login = () => {
           </div>
         )}
 
-        {/* <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "45vh",
-            border: "2px solid #000000",
-            width: "24%",
-            marginTop: '-12vh',
-            padding: "15px",
-          }}
-        >
-          <Typography
-            variant="h5"
-            component="div"
-            sx={{ flexGrow: 1, fontWeight: "bold", color: "black", marginTop:'4vh'}}
-          >
-            LOG IN
-          </Typography>
-          <TextField
-            label="Username"
-            variant="outlined"
-            type="text" // Assuming amount is a number
-            margin="normal"
-            fullWidth
-            value={formData.email}
-            onChange={handleInputChange}
-          />
-          <TextField
-            label="Password"
-            variant="outlined"
-            type="text"
-            margin="normal"
-            fullWidth
-            value={formData.password}
-            onChange={handleInputChange}
-          />
-
-          <Button
-            variant="contained"
-            sx={{
-              bgcolor: "#F27C22",
-              color: "Black",
-              border: "2px solid #000000",
-              margin: "4vh auto",
-            }}
-            // onClick={handleNext}
-          >
-            LOG IN
-          </Button> */}
-
           <form onSubmit={handleSubmit}>
                         <h2 className="head-title">Login</h2>
                         <div className="outerBox">
@@ -160,7 +104,6 @@ const Login = () => {
                             Sign In
                         </button>
                     </form>
-        {/* </Box> */}
       </div>
     </>
   );
