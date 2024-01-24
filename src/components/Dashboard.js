@@ -30,7 +30,7 @@ const Dashboard = () => {
     cursor: "pointer",
   };
 
-  return (
+  
     <>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
@@ -95,33 +95,6 @@ const Dashboard = () => {
         </Box>
       </Box>
     </>
-
-    // <div className="container">
-    //   <nav>
-    //     <div className="title">E-BILLING APP</div>
-    //     <div className="nav-buttons">
-    //       <a href="/login">LOG OUT</a>
-    //     </div>
-    //   </nav>
-
-    //   <section className="Dashboard">
-
-    //     <div className="About-main">
-    //       <h1>WELCOME,{userEmail && <span>{userEmail}</span>} </h1>
-    //       <p>REDUCE COST, SAVE TIME, AND IMPROVE CASH FLOW WITH E-BILLING APP</p>
-    //       <div className="main_button">
-    //         <a href="/billing" style={buttonStyle}  onClick={handleLogout}>
-    //           PAY BILLS HERE!
-    //         </a>
-    //       </div>
-    //     </div>
-
-    //     <div>
-    //       <img className="face" src={face} alt="face.png" />
-    //     </div>
-
-    //   </section>
-    // </div>
   );
 };
 

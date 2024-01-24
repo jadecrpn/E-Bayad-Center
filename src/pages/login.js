@@ -35,8 +35,6 @@ import { toast } from 'sonner';
               toast.error('Email and password are required.');
               return;
             }
-
-            
         
             try {
                 // Call the loginUser function from useUser hook
@@ -44,6 +42,8 @@ import { toast } from 'sonner';
         
                 // If login is successful, you can redirect to the dashboard or do other actions
                 if (user) {
+                    
+                    localStorage.setItem('userEmail', formData.email);
                     navigate('/dashboard'); // Redirect to the dashboard
                     toast.success('Login successful!');
                 } else {
