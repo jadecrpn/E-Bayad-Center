@@ -38,7 +38,7 @@ const Dashboard = () => {
       
       <section className="Dashboard">
         <div className="About-main">
-          <h1>WELCOME, {userEmail && <span>{userEmail}</span>} </h1>
+          <h1>WELCOME, {userEmail && <span> {userEmail}</span>} </h1>
           <p>REDUCE COST, SAVE TIME, AND IMPROVE CASH FLOW WITH E-BILLING APP</p>
           <div className="main_button">
             <a href="/billing" style={buttonStyle}  onClick={handleLogout}>

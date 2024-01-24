@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 export const useUser = () => {
   const navigate = useNavigate();
   const { register, watch, formState: { errors } } = useForm();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn,  setIsLoggedIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
   const signUpUser = async (data) => {
@@ -35,6 +35,7 @@ export const useUser = () => {
       console.log('Registration successful');
       // Redirect to the dashboard or perform other actions here
       return true;
+
   } catch (error) {
       console.error('Error during registration', error);
       return false;
@@ -64,7 +65,7 @@ export const useUser = () => {
           toast.error('Incorrect password. Please try again.');
           return null;
       }
-
+        localStorage.setItem('userEmail',user.email);
         navigate('/dashboard'); // Redirect to the dashboard
         toast.success('Login successful!');
         console.log('User found:', user);
@@ -78,8 +79,7 @@ export const useUser = () => {
     }
 };
 
-          
-
+        
     const hashPassword = async (password) => {
         const encoder = new TextEncoder();
         const data = encoder.encode(password);
@@ -96,15 +96,10 @@ export const useUser = () => {
     };
 
 
-    
-
     const handleSignOut = () => {
-        // Check if there is an email stored before removing
-        if (localStorage.getItem('userEmail')) {
-          localStorage.removeItem('userEmail');
-        }
+       localStorage.removeItem('userEmail'); 
         setIsLoggedIn(false);
-      };
+    };
     
 
     const validatePassword = async (enteredPassword, hashedPassword) => {

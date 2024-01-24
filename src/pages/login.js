@@ -42,6 +42,8 @@ import { toast } from 'sonner';
         
                 // If login is successful, you can redirect to the dashboard or do other actions
                 if (user) {
+                    
+                    localStorage.setItem('userEmail', formData.email);
                     navigate('/dashboard'); // Redirect to the dashboard
                     toast.success('Login successful!');
                 } else {
