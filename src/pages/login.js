@@ -37,30 +37,45 @@ const Login = () => {
       // Call the loginUser function from useUser hook
       const user = await loginUser(formData);
 
-      // If login is successful, you can redirect to the dashboard or do other actions
-      if (user) {
-        navigate("/dashboard"); // Redirect to the dashboard
-        toast.success("Login successful!");
-      } else {
-        // If login is not successful, display an error message
-        toast.error("Invalid email or password. Please try again.");
-      }
-    } catch (error) {
-      console.error("Login failed", error);
-      toast.error("An error occurred during login. Please try again.");
-    }
-  };
-
-  return (
-    <main>
-      <Navigation />
-      <Toaster richColors className="div-container-position" />
-      <div className="div-container1" style={{ minHeight: "83.8vh" }}>
-        {errorMessage && (
-          <div className="text-red-500 mb-4 border-2 border-red-300 p-4 bg-red-200 rounded-md">
-            {errorMessage}
-          </div>
-        )}
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+          
+            // Add validation if email and password are not empty
+            if (!formData.email || !formData.password) {
+              toast.error('Email and password are required.');
+              return;
+            }
+        
+            try {
+                // Call the loginUser function from useUser hook
+                const user = await loginUser(formData);
+        
+                // If login is successful, you can redirect to the dashboard or do other actions
+                if (user) {
+                    
+                    localStorage.setItem('userEmail', formData.email);
+                    navigate('/dashboard'); // Redirect to the dashboard
+                    toast.success('Login successful!');
+                } else {
+                    // If login is not successful, display an error message
+                    toast.error('Invalid email or password. Please try again.');
+                }
+            } catch (error) {
+                console.error('Login failed', error);
+                toast.error('An error occurred during login. Please try again.');
+            }
+        };
+       
+        return (
+            <main>
+                <Navigation />
+                <Toaster richColors className='div-container-position' />
+                <div className="div-container1">
+                    {errorMessage && (
+                        <div className="text-red-500 mb-4 border-2 border-red-300 p-4 bg-red-200 rounded-md">
+                            {errorMessage}
+                        </div>
+                    )}
 
         <form
           onSubmit={handleSubmit}
