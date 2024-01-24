@@ -32,6 +32,22 @@ const Confirmation = () => {
       });
   };
 
+  const handleBack = () => {
+    navigate('/transaction', {
+      state: {
+        billerName,
+        billerImage,
+        amount,
+        accountNumber,
+        accountName,
+        bank,
+        bankAccountNumber,
+      },
+    });
+};
+    
+    
+
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -51,7 +67,7 @@ const Confirmation = () => {
         <Button
           variant="contained"
           sx={{ bgcolor: '#F27C22', color: 'Black', border: '2px solid #000000' }}
-          onClick={() => navigate('/transaction')} // Navigate back to the transaction page
+          onClick={handleBack}
         >
           Back
         </Button>

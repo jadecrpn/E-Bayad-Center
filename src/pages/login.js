@@ -1,41 +1,31 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Navigation from "../components/Navbar";
-import { useUser } from "../hooks/useUser";
-import { Toaster } from "sonner";
-import { toast } from "sonner";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
+import Navigation from '../components/Navbar';
+import { useUser } from '../hooks/useUser'
+import { Toaster } from 'sonner';
+import { toast } from 'sonner';
 
-const Login = () => {
-  const navigate = useNavigate();
-  const { loginUser } = useUser(); // Assuming your useUser hook has a function loginUser
 
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
 
-  const [errorMessage] = useState("");
+    const Login = () => {
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value,
-    }));
-  };
+        const navigate = useNavigate();
+        const { loginUser } = useUser(); // Assuming your useUser hook has a function loginUser
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+        const [formData, setFormData] = useState({
+            email: '',
+            password: '',
+        });
 
-    // Add validation if email and password are not empty
-    if (!formData.email || !formData.password) {
-      toast.error("Email and password are required.");
-      return;
-    }
+        const [errorMessage] = useState('');
 
-    try {
-      // Call the loginUser function from useUser hook
-      const user = await loginUser(formData);
+        const handleInputChange = (e) => {
+            const { id, value } = e.target;
+            setFormData((prevData) => ({
+                ...prevData,
+                [id]: value,
+            }));
+        };
 
         const handleSubmit = async (e) => {
             e.preventDefault();
@@ -70,60 +60,55 @@ const Login = () => {
             <main>
                 <Navigation />
                 <Toaster richColors className='div-container-position' />
-                <div className="div-container1">
+                <div className="div-container1" style={{ minHeight: "83.8vh" }}>
                     {errorMessage && (
                         <div className="text-red-500 mb-4 border-2 border-red-300 p-4 bg-red-200 rounded-md">
                             {errorMessage}
                         </div>
                     )}
 
-        <form
-          onSubmit={handleSubmit}
-          style={{ height: "44vh", marginTop: "-10vh" }}
-        >
-          <h2
-            style={{
-              textAlign: "center",
-              marginLeft: "-15vh",
-              marginTop: "0.5vh",
-              marginBottom: "1vh",
-            }}
-            className="head-title"
-          >
-            LOG IN
-          </h2>
-          <div className="outerBox">
-            <label htmlFor="email" className="labelBox">
-              Email:
-            </label>
-            <input
-              type="text"
-              id="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="inputBox"
-            />
-          </div>
+                    <form onSubmit={handleSubmit}
+                    style={{ height: "44vh", marginTop: "-10vh" }}>
+                        <h2 
+                        style={{
+                          textAlign: "center",
+                          marginLeft: "-15vh",
+                          marginTop: "0.5vh",
+                          marginBottom: "1vh",
+                        }}
+                        className="head-title">Login</h2>
+                        <div className="outerBox">
+                            <label htmlFor="email" className="labelBox">
+                                Email:
+                            </label>
+                            <input
+                                type="text"
+                                id="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                className="inputBox"
+                            />
+                        </div>
 
-          <div className="outerBox">
-            <label htmlFor="password" className="labelBox">
-              Password:
-            </label>
-            <input
-              type="password"
-              id="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              className="inputBox"
-            />
-          </div>
-          <button type="submit" className="signup_button">
-            Sign In
-          </button>
-        </form>
-      </div>
-    </main>
-  );
-};
+                        <div className="outerBox">
+                            <label htmlFor="password" className="labelBox">
+                                Password:
+                            </label>
+                            <input
+                                type="password"
+                                id="password"
+                                value={formData.password}
+                                onChange={handleInputChange}
+                                className="inputBox"
+                            />
+                        </div>
+                        <button type="submit" className="signup_button">
+                            Sign In
+                        </button>
+                    </form>
+                </div>
+            </main>
+        );
+    };
 
-export default Login;
+    export default Login;

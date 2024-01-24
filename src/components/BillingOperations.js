@@ -29,6 +29,9 @@ import Sunlife from '../Assets/Sunlife.png';
 const BillingOperations = () => {
   const navigate = useNavigate();
 
+  const handleBack = () => {
+    navigate('/dashboard')}
+
   const handleBillerClick = (biller, billerImage) => {
     // Perform any necessary logic here
 
@@ -52,7 +55,7 @@ const BillingOperations = () => {
     </Box>
 
     <Stack spacing={2} direction="row" sx={{paddingLeft: '20%', paddingTop: 10}}>
-      <Button variant="contained" sx={{bgcolor: '#F27C22', color: 'Black', border: '2px solid #000000',}}> <a href = "/dashboard" >Back</a></Button>
+      <Button variant="contained" sx={{bgcolor: '#F27C22', color: 'Black', border: '2px solid #000000',}} onClick={handleBack}>Back</Button>
       </Stack>
     
     <Box

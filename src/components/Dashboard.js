@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [userEmail, setUserEmail] = useState(null);
@@ -15,10 +16,7 @@ const Dashboard = () => {
     setUserEmail(storedEmail);
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("userEmail");
-    setUserEmail(null);
-  };
+  const navigate = useNavigate();
 
   const buttonStyle = {
     backgroundColor: "transparent",
@@ -30,7 +28,7 @@ const Dashboard = () => {
     cursor: "pointer",
   };
 
-  
+  return (
     <>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
@@ -67,29 +65,47 @@ const Dashboard = () => {
           justifyContent: "space-between",
           alignItems: "center",
           padding: "20px",
+          overflowX: "hidden",
         }}
       >
-        <Box sx={{ flex: 1 }}>
-          <Typography variant="h4" gutterBottom>
-            WELCOME, {userEmail && <span>{userEmail}</span>}
+        <Box sx={{ flex: 1, marginLeft: "13vh", textTransform: "uppercase" }}>
+          <Typography
+            variant="h5"
+            gutterBottom
+            sx={{ marginTop: "1vh", marginBottom: "10vh" }}
+          >
+            Welcome, {userEmail && <span>{userEmail}</span>}
           </Typography>
-          <Typography variant="body1" paragraph>
+          <Typography variant="h4" paragraph sx={{ fontWeight: "bold" }}>
             REDUCE COST, <br></br>SAVE TIME,<br></br>AND IMPROVE CASH FLOW
             <br></br>WITH E-BILLING APP
           </Typography>
-          <Button href="/billing" style={buttonStyle} onClick={handleLogout}>
+          <Button
+            href="/billing"
+            variant="contained"
+            onClick={() => navigate("/billing")}
+            sx={{
+              marginTop: "3vh",
+              bgcolor: "#F27C22",
+              color: "Black",
+              border: "2px solid #000000",
+              margin: "30px auto",
+              height: "6vh",
+            }}
+          >
             PAY BILLS HERE!
           </Button>
         </Box>
         <Box>
           <img
             src={face}
+            position="fixed"
             alt="face.png"
             style={{
               width: "1025px",
               height: "576px",
               marginTop: "3vh",
-              marginLeft: "60vh",
+              marginRight: "-15vh",
             }}
           />
         </Box>
