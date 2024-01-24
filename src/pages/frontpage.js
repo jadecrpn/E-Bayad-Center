@@ -40,11 +40,11 @@ const Front = () => {
         </AppBar>
       </Box>
 
-      <Box sx={{ textAlign: "center", marginTop: "2vh" }}>
+      <Box sx={{ textAlign: "center", marginTop: "-3vh" }}>
         <img
           src={Sbsl}
           alt="Sbsl.png"
-          style={{ width: "1025px", height: "576px" }}
+          style={{ width: "80%", height: "45%" }}
         />
       </Box>
 
@@ -57,9 +57,9 @@ const Front = () => {
             bgcolor: "#F27C22",
             color: "Black",
             border: "1px solid #000000",
-            marginTop: "-40vh",
-            width: "200px", // Adjust the width as needed
-            height: "50px", // Adjust the height as needed
+            marginTop: "-30%",
+            width: "15%", // Adjust the width as needed
+            height: "15%", // Adjust the height as needed
           }}
         >
           Register
