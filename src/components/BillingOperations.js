@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import ListSubheader from '@mui/material/ListSubheader';
 import Divider from '@mui/material/Divider';
+import { useNavigate } from 'react-router-dom';
 
 import Cignal from '../Assets/Cignal.png';
 import Converge from '../Assets/Converge_ICT_.png';
@@ -26,7 +27,14 @@ import Sunlife from '../Assets/Sunlife.png';
 
 
 const BillingOperations = () => {
+  const navigate = useNavigate();
 
+  const handleBillerClick = (biller, billerImage) => {
+    // Perform any necessary logic here
+
+    // Navigate to the Transaction component
+    navigate('/transaction', { state: { billerName: biller, billerImage } });
+  }
 
   return (
     <>
@@ -72,16 +80,19 @@ const BillingOperations = () => {
       <List subheader={
               <ListSubheader sx={{ fontSize: '20px', bgcolor: '#F27C22', color: 'black', }}>
                 Choose Your Biller
-              </ListSubheader>
-            }
-      >
-      <ListItem disablePadding>
-            <ListItemButton sx={{paddingTop: '15px'}}>
+              </ListSubheader>}>
+
+
+          <ListItem disablePadding>
+            <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Cignal", Cignal)}>
               <ListItemIcon>
-              <img className="Cignal" 
-              src={Cignal} 
-              alt={"Cignal"}
-              style={{ width: '24px', height: '24px' }}/>
+              <img
+                className="Cignal"
+                src={Cignal}
+                alt={"Cignal"}
+                style={{ width: '24px', height: '24px' }}
+              />
               </ListItemIcon>
               <ListItemText primary="Cignal" />
             </ListItemButton>
@@ -89,20 +100,24 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Converge", Converge)}>
               <ListItemIcon>
-              <img className="Converge" 
-              src={Converge} 
-              alt={"Converge"}
-              style={{ width: '24px', height: '24px' }}/>
+              <img
+                className="Converge"
+                src={Converge}
+                alt={"Converge"}
+                style={{ width: '24px', height: '24px' }}
+              />
               </ListItemIcon>
-              <ListItemText primary="Converge ICT Solutions" />
+              <ListItemText primary="Converge" />
             </ListItemButton>
           </ListItem>
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Home-Credit", HomeCredit)}>
               <ListItemIcon>
               <img className="Home-Credit" 
               src={HomeCredit} 
@@ -115,7 +130,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Maynilad", Maynilad)}>
               <ListItemIcon>
               <img className="Maynilad" 
               src={Maynilad} 
@@ -128,7 +144,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Meralco", Meralco)}>
               <ListItemIcon>
               <img className="Meralco" 
               src={Meralco} 
@@ -141,7 +158,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Pag-Ibig", Pagibig)}>
               <ListItemIcon>
               <img className="Pag-Ibig Loan" 
               src={Pagibig} 
@@ -154,7 +172,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("PLDT", PLDT)}>
               <ListItemIcon>
               <img className="PLDT" 
               src={PLDT} 
@@ -167,7 +186,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Pru Life UK", Prulife)}>
               <ListItemIcon>
               <img className="Pru Life UK" 
               src={Prulife} 
@@ -180,7 +200,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("Sky-Cable", Sky)}>
               <ListItemIcon>
               <img className="Sky Cable" 
               src={Sky} 
@@ -193,7 +214,8 @@ const BillingOperations = () => {
           <Divider />
 
           <ListItem disablePadding>
-            <ListItemButton>
+          <ListItemButton sx={{ paddingTop: '15px' }}
+              onClick={() => handleBillerClick("SunLife Insurance", Sunlife)}>
               <ListItemIcon>
               <img className="Sun Life Insurance" 
               src={Sunlife} 

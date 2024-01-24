@@ -1,29 +1,36 @@
-// receipt.js
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+// confirmation.js
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
-const Receipt = () => {
+const Confirmation = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Retrieve transaction details from location state
   const { billerName, billerImage, amount, accountNumber, accountName, bank, bankAccountNumber } = location.state;
 
-  // Generate a random reference number
-  const generateReferenceNumber = () => {
-    return Math.floor(100000 + Math.random() * 900000); // Random 6-digit number
+  const handleConfirmation = () => {
+    // Perform any necessary logic for confirming the transaction
+
+    // You can navigate to a success page or any other page as needed
+    navigate('/receipt', {
+        state: {
+          billerName,
+          billerImage,
+          amount,
+          accountNumber,
+          accountName,
+          bank,
+          bankAccountNumber,
+        },
+      });
   };
-
-  const [referenceNumber, setReferenceNumber] = useState('');
-
-  useEffect(() => {
-    setReferenceNumber(generateReferenceNumber().toString());
-  }, []); // Run only once on component mount
 
   return (
     <>
@@ -34,7 +41,7 @@ const Receipt = () => {
               E-BILLING APP
             </Typography>
             <Typography variant="h7" component="div" sx={{ flexGrow: -10, fontWeight: 'bold', color: 'black' }}>
-              RECEIPT
+              CONFIRMATION
             </Typography>
           </Toolbar>
         </AppBar>
@@ -44,9 +51,9 @@ const Receipt = () => {
         <Button
           variant="contained"
           sx={{ bgcolor: '#F27C22', color: 'Black', border: '2px solid #000000' }}
-          onClick={() => window.location.reload()} // Reload the page for a new receipt
+          onClick={() => navigate('/transaction')} // Navigate back to the transaction page
         >
-          New Transaction
+          Back
         </Button>
       </Stack>
 
@@ -59,12 +66,12 @@ const Receipt = () => {
           height: '60vh',
           border: '2px solid #000000',
           width: '25%',
-          margin: '15px auto',
+          margin: '15px auto', // Adjust margin as needed
           padding: '15px',
         }}
       >
-        <Typography variant="h6" component="div" sx={{ color: 'black', fontWeight: 'bold' }}>
-          Receipt
+        <Typography variant="h6" component="div" sx={{ color: 'black',  fontWeight: 'bold' }}>
+          Transaction Summary
         </Typography>
 
         <Typography variant="body1" component="div" sx={{ color: 'black', marginTop: 2 }}>
@@ -76,7 +83,7 @@ const Receipt = () => {
           style={{ width: '40px', height: '40px', marginTop: '5px', marginBottom: '5vh' }}
         />
 
-        <Typography variant="body1" component="div" sx={{ color: 'black', marginTop: 2 }}>
+        <Typography variant="body1" component="div" sx={{ color: 'black', marginTop: 2, textAlign: 'right'}}>
           Amount: {amount}
         </Typography>
         <Typography variant="body1" component="div" sx={{ color: 'black' }}>
@@ -92,12 +99,22 @@ const Receipt = () => {
           Bank Account Number: {bankAccountNumber}
         </Typography>
 
-        <Typography variant="body1" component="div" sx={{ color: 'black', marginTop: 2 }}>
-          Reference Number: {referenceNumber}
-        </Typography>
+        <Button
+          variant="contained"
+          sx={{
+            bgcolor: '#F27C22',
+            color: 'Black',
+            border: '2px solid #000000',
+            margin: '30px auto',
+            marginBottom:'1vh'
+          }}
+          onClick={handleConfirmation}
+        >
+          Confirm
+        </Button>
       </Box>
     </>
   );
 };
 
-export default Receipt;
+export default Confirmation;
