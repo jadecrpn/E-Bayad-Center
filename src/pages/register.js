@@ -7,7 +7,7 @@ import { toast } from 'sonner'
 
 const Signup = () => {
     const navigate = useNavigate();
-    const { errors, errorMessage, signUpUser } = useUser();
+    const { errors, errorMessage} = useUser();
   
     const [formData, setFormData] = useState({
       email: '',
@@ -53,6 +53,7 @@ const Signup = () => {
             
             localStorage.setItem('userEmail', formData.email);
             navigate('/dashboard');
+            
         } catch (error) {
             console.error('Error during registration', error);
             toast.error('An error occurred');
@@ -117,8 +118,7 @@ const Signup = () => {
                             >Sign Up
                         </button>
                     </form>
-                </div>
-            
+                </div>        
         </main>
     );
 };

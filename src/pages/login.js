@@ -35,8 +35,6 @@ import { toast } from 'sonner';
               toast.error('Email and password are required.');
               return;
             }
-
-            
         
             try {
                 // Call the loginUser function from useUser hook

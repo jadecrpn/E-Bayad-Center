@@ -1,22 +1,16 @@
 {
   "accounts": [
     {
-      "id": "61db",
-      "email": "auztine.malic@gmail.com",
-      "password": "12345",
-      "confirmPassword": "12345"
-    },
-    {
-      "id": "ce78",
-      "email": "auztine.malic@gmail.com",
-      "password": "12345",
-      "confirmPassword": "12345"
-    },
-    {
-      "id": "ce14",
+      "id": "1ac1",
       "email": "hehhe@gmai.com",
       "password": "111",
       "confirmPassword": "111"
+    },
+    {
+      "id": "4005",
+      "email": "auztine.malic@gmail.com",
+      "password": "12345",
+      "confirmPassword": "12345"
     }
   ]
 }
