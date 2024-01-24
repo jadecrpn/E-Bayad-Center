@@ -132,10 +132,10 @@ form {
   justify-content: center;
   background-color: #fff;
   padding: 30px;
-  border-radius: 50px;
+  border-radius: 0px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
-  width: 300px; /* Set a fixed width for the form */
+  width: 43vh; /* Set a fixed width for the form */
   border: 1px solid #ccc;
   height: 300px;
 }
@@ -168,6 +168,11 @@ button {
   margin: 0 auto;
   padding: 10px;
   text-align: center;
+  border-radius: 0px;
+  width: 15vh;
+  background-color: #F27C22;
+  height: "5vh";
+  margin-top: 2vh;
   
 }
 
