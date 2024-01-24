@@ -13,14 +13,14 @@ Limitation:
 
 
 
-Corpin
+Corpin (Leader/Front-End)
 -Registration Section/Log in Section
 
-Cujardo
--Pay Bills section
+Cujardo (Front-End)
+-Pay Bills Section/Confirmation and Receipt Section
 
-Malic
--Main Section
+Malic (Back-End)
+- Database, Dashboard 
 
-Tuazon
+Tuazon (Front-End)
 -Front Page 
