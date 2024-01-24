@@ -35,6 +35,9 @@ const Transaction = () => {
         setBank(event.target.value);
       };
 
+      const handleBack = () => {
+        navigate('/billing')}
+
       const handleNext = () => {
     //     const amount = ('');
     // const accountNumber = ('');
@@ -93,7 +96,9 @@ const Transaction = () => {
             color: "Black",
             border: "2px solid #000000",
           }}
-        >
+          onClick={handleBack}
+          >
+          
           Back
         </Button>
 
@@ -134,9 +139,9 @@ const Transaction = () => {
           onChange={(e) => setAmount(e.target.value)} // Update state on change
         />
         <TextField
-          label="Account No. (10-digits)"
+          label="Account No."
           variant="outlined"
-          type="text"
+          type="number"
           margin="normal"
           fullWidth
           value={accountNumber}
@@ -185,7 +190,7 @@ const Transaction = () => {
         <TextField
           label="Bank Account No."
           variant="outlined"
-          type="text"
+          type="number"
           margin="normal"
           fullWidth
           value={bankAccountNumber}

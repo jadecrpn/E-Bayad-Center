@@ -1,6 +1,6 @@
 // receipt.js
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 
 const Receipt = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Retrieve transaction details from location state
   const { billerName, billerImage, amount, accountNumber, accountName, bank, bankAccountNumber } = location.state;
@@ -44,9 +45,9 @@ const Receipt = () => {
         <Button
           variant="contained"
           sx={{ bgcolor: '#F27C22', color: 'Black', border: '2px solid #000000' }}
-          onClick={() => window.location.reload()} // Reload the page for a new receipt
+          onClick={() => navigate('/dashboard')} // Reload the page for a new receipt
         >
-          New Transaction
+          Home Page
         </Button>
       </Stack>
 
@@ -63,7 +64,7 @@ const Receipt = () => {
           padding: '15px',
         }}
       >
-        <Typography variant="h6" component="div" sx={{ color: 'black', fontWeight: 'bold' }}>
+        <Typography variant="h6" component="div" sx={{ color: 'black', fontWeight: 'bold', marginTop:'-1vh' }}>
           Receipt
         </Typography>
 

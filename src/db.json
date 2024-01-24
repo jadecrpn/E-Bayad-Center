@@ -1,38 +1,26 @@
 {
   "accounts": [
     {
-      "id": "9d8a",
+      "id": "27dc",
       "email": "cujardofamily@gmail.com",
-      "password": "12345",
-      "confirmPassword": "12345"
-    },
-    {
-      "id": "8821",
-      "email": "cujardofamily@gmail.com",
-      "password": "1234",
-      "confirmPassword": "1234"
-    },
-    {
-      "id": "af12",
-      "email": "gwynn",
       "password": "123",
       "confirmPassword": "123"
     },
     {
-      "id": "52c6",
+      "id": "b070",
       "email": "gwynn",
+      "password": "1234",
+      "confirmPassword": "1234"
+    },
+    {
+      "id": "89d0",
+      "email": "qwerty12345!@#$%",
       "password": "12345",
       "confirmPassword": "12345"
     },
     {
-      "id": "3909",
-      "email": "",
-      "password": "",
-      "confirmPassword": ""
-    },
-    {
-      "id": "095b",
-      "email": "gwynn",
+      "id": "b5b5",
+      "email": "gwynn.cujardo@tup.edu.ph",
       "password": "12345",
       "confirmPassword": "12345"
     }

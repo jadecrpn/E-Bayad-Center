@@ -65,7 +65,9 @@ const Front = () => {
           Register
         </Button>
       </Box>
-
+      <footer style={{ position: "fixed", bottom: -80, width: "100%", textAlign: "center"}}>
+        <p>Copyright &#169; 2024 E-BILLING APP. All Rights Reserved.</p>
+      </footer>
     </>
   );
 };
